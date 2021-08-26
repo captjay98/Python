@@ -21,4 +21,4 @@ while True:
    else:
       print('enter a valid score please')
  except:
-   print('Please input digit')
+   print('Please input Score!')
