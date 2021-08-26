@@ -5,6 +5,7 @@ while True:
    def computegrade():
     grade = s
     return s
+
    if s > 100 or s < 0:
       print ('enter a valid score')
    elif s>=90:
