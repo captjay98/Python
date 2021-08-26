@@ -1,7 +1,6 @@
 while True:
  try:
-   s = input('enter score between 0-100\n')
-   s = float(s)
+   s = float(input('enter score between 0-100\n'))
 
    def computegrade():
     grade = s
