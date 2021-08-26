@@ -1,6 +1,6 @@
 my_name = 'JAMAL IBRAHIM UMAR'
 my_age = 22
-my_height = 182  # CM
+my_height = 183  # CM
 my_weight = 66 # KG
 my_eyes = 'BROWN'
 my_teeth = 'WHITE'
