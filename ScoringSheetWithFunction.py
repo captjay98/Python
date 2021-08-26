@@ -1,5 +1,7 @@
 while True:
+
  try:
+
    s = float(input('enter score between 0-100\n'))
 
    def computegrade():
@@ -20,5 +22,6 @@ while True:
       print('F')
    else:
       print('enter a valid score please')
+
  except:
    print('Please input Score!')
