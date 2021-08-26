@@ -16,7 +16,8 @@
 #Operands
 #PEMDAS
 
-
+def func():
+    print('updated')
 number1=input('Input Number 1\n')
 number2=input('input Number 2\n')
 number1=int(number1)
