@@ -1,17 +1,38 @@
 my_name = 'JAMAL IBRAHIM UMAR'
-my_age = 22
+my_age = 2021 - 1998
 my_height = 183  # CM
 my_weight = 66 # KG
 my_eyes = 'BROWN'
 my_teeth = 'WHITE'
 my_hair = 'BLACK'
+my_qualification = 'Python Dev'
 
-print(f"let's talk about {my_name}.")
-print(f"He's {my_height} inches tall.")
-print(f"He's {my_weight} KILOGRAMS heavy")
-print("Actually that's not too heavy")
-print(f"He's got {my_eyes} eyes and {my_hair} hair")
-print(f"His teeth are usually {my_teeth} ")
 
-total = my_age + my_height
-print(f"if i add {my_age}, {my_height}, and {my_weight} i get {total}")
+while True:
+  try:
+    Q1 = input("Ask about me \n")
+
+    if Q1 == "What's your name?":
+        print(f"My name is {my_name}.")
+
+    elif Q1 == "How old are you?":
+        print(f"I am {my_age} years old")
+
+    elif Q1 == "How about your height?":
+        print(f"I am {my_height} CM tall")
+
+    elif Q1 == "And your weight?":
+        print(f"I am {my_weight} KG heavy")
+        print("I know I'm not that heavy")
+
+    elif Q1 == "Any other thing?":
+        print(f"I have {my_eyes} eyes and my hair is {my_hair}")
+        print(f"My teeth are usually {my_teeth} .")
+        print('And i Absolutely Love python')
+
+    else:
+        print("Ask this questions pythonicallly")
+
+  except:
+    print("Don't be a dumbass")
+
