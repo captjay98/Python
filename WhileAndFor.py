@@ -298,6 +298,64 @@ while True:
 quit()
 
 
+def temp(a):
+    cal = float(input('Please enter Temperature\n'))
+    return cal
+
+
+def tempC(a):
+    calc = int((temp - 32.0) * 5.0 / 9.0)
+    return calc
+
+while True:
+    try:
+
+        temp = float(input('Please enter Temperature\n'))
+
+        tempF = int((temp - 32.0) * 5.0 / 9.0)
+
+        unit = input("Enter C or F")
+
+        if unit.upper() == "C":
+
+            if temp >= 30:
+                print(f"It is {temp} in C")
+                print("It's a hot day, Stay Hydrated")
+
+            elif temp >= 20:
+                print(f"It is {temp} in C")
+                print("it's a nice day, Enjoy")
+
+            elif temp < 20:
+                print(f"It is {temp} in C")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
+
+        elif unit.upper() == "F":
+
+            if tempF >= 88:
+                print(f"It is {tempF} in F")
+                print("It's a hot day, Stay Hydrated")
+
+            elif tempF >= 69:
+                print(f"It is {tempF} in F")
+                print("it's a nice day, Enjoy")
+
+            elif tempF < 69:
+                print(f"It is {temp} in F")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
+        else:
+            print('Enter digits Please')
+
+    except:
+        print("This is a weather bot")
+
+
 weight = float(input("Please input weight \n"))
 unit= input("(K)g or (L)bs \n")
 
@@ -319,9 +377,15 @@ else:
 #math.poow(2 numbers base and exponent)
 
 import math
+
 degrees = 45
 radians = degrees / 360.0 * 2 * math.pi
+
+
 math.sin(radians)
+
+ratio = signal_power / noise_power
+decibels = 10 * math.log10(ratio)
 
 #Exercise
 import random
@@ -412,12 +476,12 @@ while True:
     rate = input('Enter Rate\n')
     rate = float(rate)
 
-    def computepay():
+    def computepay(a,b):
         pay = hours * rate
         return pay
 
     if hours > 40:
-       print (computepay() * 0.5)
+       print (computepay() * 1.057)
 
     if hours <= 40:
        print(computepay())
