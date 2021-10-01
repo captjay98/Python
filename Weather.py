@@ -1,48 +1,52 @@
 while True:
     try:
 
-        temp = float(input('Please enter Temperature\n'))
+        def farenheit(t):
+            temp = t
+            return temp
 
-        tempC = int((temp - 32.0) * 5.0 / 9.0)
+        t = int(input('Please enter Temperature in F\n'))
 
-        unit = input("Enter C or F")
+        def celsius():
+            tempc = int((t - 32.0) * 5.0 / 9.0)
+            return tempc
 
-        if unit.upper() == "C":
+        unit = input("Enter Unit")
 
-            if tempC >= 30:
-                print(f"It is {tempC} in C")
-                print("It's a hot day, Stay Hydrated")
+        if unit.upper() == "F":
 
-            elif tempC >= 20:
-                print(f"It is {tempC} in C")
-                print("it's a nice day, Enjoy")
+            if farenheit(t) >= 88:
+                print(f"It is {farenheit(t)} in F")
+                print("it's a hot day, Stay Hydrated")
 
-            elif tempC < 20:
-                print(f"It is {tempC} in C")
+            elif farenheit(t) >= 69:
+                print(f"It is {farenheit(t)} in F")
+                print("it's a nice day")
+
+            elif farenheit(t) < 69:
+                print(f"It is {farenheit(t)} in F")
                 print("It's chilly today, Stay Warm")
 
             else:
                 print("Check your input")
 
+        elif unit.upper() == "C":
+            if celsius() >= 30:
+                print(f"It is {celsius()} in C")
+                print("it's a hot day, Stay Hydrated")
+
+            elif celsius() >= 20:
+                print(f"It is {celsius()} in C")
+                print("it's a nice day, Enjoy")
+
+            elif celsius() < 20:
+                print(f"It is {celsius()} in C")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
         else:
-            unit.upper() == "F"
-
-            if temp >= 88:
-                print(f"It is {temp} in F")
-                print("It's a hot day, Stay Hydrated")
-
-            elif tempC >= 69:
-                print(f"It is {temp} in F")
-                print("it's a nice day, Enjoy")
-
-            elif tempC < 69:
-                print(f"It is {temp} in F")
-                print("It's chilly today, Stay Warm")
-
-            else:
-                print("Check your input")
+            print('Enter C or F')
 
     except:
-        print("This is a weather bot")
-        quit()
-
+        print("Enter Digits Please")
