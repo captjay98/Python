@@ -199,30 +199,31 @@ except:
 
 
 while True:
- try:
-   s = input('enter score between 0.0-1.0\n')
-   s = float(s)
+    try:
+        def computegrade(score):
+            grade = score
+            return grade
 
-   def computegrade():
-    grade = s
-    return s
-   if s > 1.0 or s < 0.0:
-      print ('enter a valid score')
-   elif s>=0.9:
-      print('A')
-   elif s>=0.8:
-      print('B')
-   elif s>=0.7:
-      print('C')
-   elif s>0.6:
-      print('D')
-   elif s<0.6:
-      print('F')
-   else:
-      print('enter a valid score please')
- except:
-   print('Please input digit')
 
+        score = float(input("Enter Score"))
+
+        if computegrade(score) > 1.0 or computegrade(score) < 0.0:
+            print('enter a valid score')
+        elif computegrade(score) >= 0.9:
+            print('A')
+        elif computegrade(score) >= 0.8:
+            print('B')
+        elif computegrade(score) >= 0.7:
+            print('C')
+        elif computegrade(score) > 0.6:
+            print('D')
+        elif computegrade(score) < 0.6:
+            print('F')
+        else:
+            print('enter a valid score please')
+
+    except:
+        print('Please input digit')
 
 while True:
     try:
@@ -248,54 +249,64 @@ while True:
     except:
         print("Enter Digits Please")
 
+#def farenheit():
+    #calc = float(input('Please enter Temperature in F\n'))
+    #return calc
+
+
+#def celsius():
+    #cal = int((farenheit() - 32.0) * 5.0 / 9.0)
+    #return cal
+
 while True:
     try:
+        temp = float(input('Please enter Temperature in F\n'))
 
-        temp = float(input('Please enter Temperature\n'))
+        def farenheit():
+            return temp
 
-        tempC = int((temp - 32.0) * 5.0 / 9.0)
+        def Celsius():
+            tempc = int((temp - 32.0) * 5.0 / 9.0)
+            return tempc
 
-        unit = input("Enter C or F")
+        unit = input("Enter Unit")
 
-        if unit.upper() == "C":
+        if unit.upper() == "F":
+            if farenheit() >= 88:
+                print(f"It is {farenheit()} in F")
+                print("it's a hot day, Stay Hydrated")
 
-            if tempC >= 30:
-                print(f"It is {tempC} in C")
-                print("It's a hot day, Stay Hydrated")
+            elif farenheit() >= 69:
+                print(f"It is {farenheit()} in F")
+                print("it's a nice day")
 
-            elif tempC >= 20:
-                print(f"It is {tempC} in C")
-                print("it's a nice day, Enjoy")
-
-            elif tempC < 20:
-                print(f"It is {tempC} in C")
+            elif farenheit() < 69:
+                print(f"It is {farenheit()} in F")
                 print("It's chilly today, Stay Warm")
 
             else:
                 print("Check your input")
 
+        elif unit.upper() == "C":
+            if Celsius() >= 30:
+                print(f"It is {Celsius()} in C")
+                print("it's a hot day, Stay Hydrated")
+
+            elif Celsius() >= 20:
+                print(f"It is {Celsius()} in C")
+                print("it's a nice day, Enjoy")
+
+            elif Celsius() < 20:
+                print(f"It is {Celsius()} in C")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
         else:
-            unit.upper() == "F"
-
-            if temp >= 88:
-                print(f"It is {temp} in F")
-                print("It's a hot day, Stay Hydrated")
-
-            elif tempC >= 69:
-                print(f"It is {temp} in F")
-                print("it's a nice day, Enjoy")
-
-            elif tempC < 69:
-                print(f"It is {temp} in F")
-                print("It's chilly today, Stay Warm")
-
-            else:
-                print("Check your input")
+            print('Enter C or F')
 
     except:
-        print("This is a weather bot")
-
-quit()
+        print("Enter Digits Please")
 
 
 def temp(a):
@@ -306,54 +317,6 @@ def temp(a):
 def tempC(a):
     calc = int((temp - 32.0) * 5.0 / 9.0)
     return calc
-
-while True:
-    try:
-
-        temp = float(input('Please enter Temperature\n'))
-
-        tempF = int((temp - 32.0) * 5.0 / 9.0)
-
-        unit = input("Enter C or F")
-
-        if unit.upper() == "C":
-
-            if temp >= 30:
-                print(f"It is {temp} in C")
-                print("It's a hot day, Stay Hydrated")
-
-            elif temp >= 20:
-                print(f"It is {temp} in C")
-                print("it's a nice day, Enjoy")
-
-            elif temp < 20:
-                print(f"It is {temp} in C")
-                print("It's chilly today, Stay Warm")
-
-            else:
-                print("Check your input")
-
-        elif unit.upper() == "F":
-
-            if tempF >= 88:
-                print(f"It is {tempF} in F")
-                print("It's a hot day, Stay Hydrated")
-
-            elif tempF >= 69:
-                print(f"It is {tempF} in F")
-                print("it's a nice day, Enjoy")
-
-            elif tempF < 69:
-                print(f"It is {temp} in F")
-                print("It's chilly today, Stay Warm")
-
-            else:
-                print("Check your input")
-        else:
-            print('Enter digits Please')
-
-    except:
-        print("This is a weather bot")
 
 
 weight = float(input("Please input weight \n"))
@@ -455,7 +418,7 @@ def jointwo(a,b):
     joined = a + b
     return joined
 
-x = jointwo(2,5)
+x = input(jointwo())
 print(x)
 
 def fred():
