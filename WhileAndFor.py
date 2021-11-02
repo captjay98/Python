@@ -318,6 +318,72 @@ def tempC(a):
     calc = int((temp - 32.0) * 5.0 / 9.0)
     return calc
 
+while True:
+    try:
+
+        def farenheit(t):
+            temp = t
+            return temp
+
+        t = int(input('Please enter Temperature in F\n'))
+
+        def celsius():
+            tempc = int((t - 32.0) * 5.0 / 9.0)
+            return tempc
+
+
+        if t >= 30:
+            print("It is Hot Today")
+
+        elif t >= 20:
+            print("It's a Nice Day")
+
+        elif t < 20:
+            print("It is Cold Today")
+
+        else:
+            print("Check Input please")
+
+
+        unit = input("Enter Unit")
+
+        if unit.upper() == "F":
+
+            if farenheit(t) >= 88:
+                print(f"It is {farenheit(t)} in F")
+                print("it's a hot day, Stay Hydrated")
+
+            elif farenheit(t) >= 69:
+                print(f"It is {farenheit(t)} in F")
+                print("it's a nice day")
+
+            elif farenheit(t) < 69:
+                print(f"It is {farenheit(t)} in F")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
+
+        elif unit.upper() == "C":
+            if celsius() >= 30:
+                print(f"It is {celsius()} in C")
+                print("it's a hot day, Stay Hydrated")
+
+            elif celsius() >= 20:
+                print(f"It is {celsius()} in C")
+                print("it's a nice day, Enjoy")
+
+            elif celsius() < 20:
+                print(f"It is {celsius()} in C")
+                print("It's chilly today, Stay Warm")
+
+            else:
+                print("Check your input")
+        else:
+            print('Enter C or F')
+
+    except:
+        print("Enter Digits Please")
 
 weight = float(input("Please input weight \n"))
 unit= input("(K)g or (L)bs \n")
@@ -461,6 +527,19 @@ while i<= 12:
     print(i * '*')
     i = i + 1
 
+n = 1
+while n < 2021 - 1998:
+    print(f"Jamal is getting older\n{n} ")
+    n = n + 1
+print(f"He's now {n} years old")
+
+while True:
+	data = input('Enter Data \n')
+	if data == 'This is the Data':
+		break
+	print(data)
+
+print("Here's the correct data")
 
 J = 22
 while J > 0:
@@ -469,10 +548,95 @@ while J > 0:
 print('Boom Shakalaka')
 
 #Finishing iterations with continue
+while True:
+	data = input('Enter Data \n')
+	if data[0] == "#" :
+		continue
+	if data == 'Data1':
+		break
+	print(data)
+print("Here's the correct data")
 
+#For loops
 numbers = [ 1, 2, 3, 4, 5,]
-for thing in numbers:
+for number in numbers:
     print(thing)
+
+clients = ['ASD', 'BSD', 'CSD', 'DSD', 'ESD', 'FSD', 'GSD']
+for client in clients:
+	print('Thank you for your patronage', client)
+print('Success')
+
+#LEN
+clients = 0
+for client in [3, 41, 12, 9, 74, 15]:
+	clients = clients + 1
+print('Clients: ', clients)
+
+#SUM
+total = 0
+for num in [3, 41, 12, 9, 74, 15]:
+	total = total + num
+print('Total: ', total)
+
+#MAX
+Largest = None
+print('Before:', Largest)
+for itervar in [3, 41, 12, 9, 74, 15] :
+	if Largest is None or itervar > Largest:
+		Largest = itervar
+	print('Loop:', itervar, Largest)
+print('Largest:',  Largest)
+
+#MIN
+smallest = None
+print('Before:', smallest)
+for itervar in [3, 41, 12, 9, 74, 15]:
+	if smallest is None or itervar < smallest:
+		smallest = itervar
+	print('Loop:', itervar, smallest)
+print('Smallest:', smallest)
+
+def min(values):
+    smallest = None
+    for value in values:
+        if smallest is None or value < smallest:
+            smallest = value
+    return smallest
+
+#EXERCISE 5.9
+
+num= 0
+total = 0
+count = 0
+average= 0
+
+while True:
+	num = input('Enter a number \n')
+	if num == 'done':
+		break
+	try:
+		float(num)
+	except:
+		print('Invalid input')
+		continue
+	total = total + float(num)
+	count = count + 1
+	average = total / count
+
+print("Total", total ,  "Count" , count,  "Average", average)
+
+while True:
+	num = int(input('Enter a number \n'))
+	if num == 'done':
+		break
+	print(num)
+
+for numb in num:
+	total = num + numb
+	print('Numb: ',numb)
+
+
 
 i = 0
 while i < len(numbers):
@@ -550,16 +714,41 @@ while True:
         total = total + intervar
     print('Total:', total)
 
+#SLICES
+fruit = "banana"
+
+print(len(fruit))
+
+print(fruit[-2])
+
+#String Traversal
 index = 0
 while index < len(fruit):
     letter = fruit[index]
     print(letter)
     index = index + 1
 
+#Better option
 for char in fruit:
     print(char)
 
+
 #String slices
+
+s = 'Python  Guru'
+print(s[0:6])
+print(s[8:12])
+print(s[:7])
+print(s[8:])
+
+fruit = "banana"
+print(fruit[:])
+
+example = "WADUP, DAWG?"
+new_example ='WAS' + example[3:]
+print(example)
+print(new_example)
+
 
 title = "Python Automation Guru"
         #0123456789
@@ -585,12 +774,35 @@ new_greeting = 'J' + greeting[1:]
 print(new_greeting)
 
 #The in operator/Looping and Counting
+fruit = 'banana'
+print('a' in fruit)
+
 word = 'banana'
 count = 0
 for letter in word:
     if letter == 'a':
         count = count + 1
 print(count)
+
+def countLetters(str, l):
+	content = str
+	count = 0
+	for letter in content:
+		if letter == l:
+			count = count + 1
+	print(count)
+print(countLetters('bananaaaaaaaa', 'a'))
+
+#Counter function
+def counter(s, l):
+	string = str(s)
+	letter = str(l)
+	count = 0
+	for alpha in string:
+		if alpha == letter:
+			count = count + 1
+	print(count)
+print(counter('banana', 'a'))
 
 #String Comparison
 word = 'banana'
