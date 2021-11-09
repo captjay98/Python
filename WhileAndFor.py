@@ -496,6 +496,31 @@ def jane():
 jane()
 fred()
 jane()
+
+
+
+def greet(lang):
+    if lang == "es":
+        print('Hola')
+    elif lang == "fr":
+        print('Bonsoir')
+    else:
+        print('Hello. World!')
+
+def greeting():
+    return 'Hello'
+
+
+print(greet("fr"), "Jamal")
+
+print(greeting(), "Jamal")
+
+def addition(a, b):
+    added = a + b
+    return added
+
+test = addition(5, 5)
+print(test)
  #EXERCISE 4.14
 while True:
   try:
@@ -510,7 +535,7 @@ while True:
         return pay
 
     if hours > 40:
-       print (computepay() * 1.057)
+       print(computepay() * 1.057)
 
     if hours <= 40:
        print(computepay())
@@ -935,3 +960,17 @@ def tempF():
 def tempC():
     tempC = temp
     return tempC
+
+
+#Building a Kalbot
+
+client_name = input('Hello, This is the Kalbot, May i Know your name please?\n')
+
+print('Welcome to Kalbites', client_name)
+
+print("What would you like to order today? Kindly select a corresponding Number from the Menu below, Thank You. \n")
+
+print( "1. Cake \n2. Parfait \n3. Tres leches \n4. Brownie \n5. Milkshake \n")
+
+menu = ["blank", "1. Cake ", "2. Parfait", "3. Tres leches", "4. Brownie", "5. Milkshake", 1,2,3.4,5]
+print(type(menu))
