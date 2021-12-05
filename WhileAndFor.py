@@ -59,7 +59,7 @@ name = input('enter file')
 handle = open(name, 'r')
 counts = dict()
 
-
+count = 0
 for line in handle:
     words = line.split()
     for word in words:
@@ -552,6 +552,11 @@ while i<= 12:
     print(i * '*')
     i = i + 1
 
+j = 12
+while j > 0:
+    j = j - 1
+    print(j * '*')
+
 n = 1
 while n < 2021 - 1998:
     print(f"Jamal is getting older\n{n} ")
@@ -585,12 +590,82 @@ print("Here's the correct data")
 #For loops
 numbers = [ 1, 2, 3, 4, 5,]
 for number in numbers:
-    print(thing)
+    print(numbers)
+
+#Definite loops using for
+friends = ['Ace', 'Bsal', 'Bib', 'Kal']
+for friend in friends:
+    print('Wassup', friend)
+
+
 
 clients = ['ASD', 'BSD', 'CSD', 'DSD', 'ESD', 'FSD', 'GSD']
 for client in clients:
 	print('Thank you for your patronage', client)
 print('Success')
+
+#Largest
+largest_so_far = -1
+print('Before', largest_so_far)
+for the_num in [9,41,12,3,74,15] :
+    if the_num > largest_so_far:
+        largest_so_far = the_num
+    print(largest_so_far, the_num)
+
+print('After', largest_so_far)
+
+#Smalllest
+smallest = None
+print('Before')
+for value in [9 ,41,12,3,74,15] :
+    if smallest is None :
+        smallest = value
+    elif value < smallest :
+        smallest = value
+    print(smallest, value)
+print('After', smallest)
+
+#Counting
+count = 0
+print('before', count)
+for num in [9,41,12,3,74,15]:
+    count = count + 1
+    print(count, num)
+print('After', count)
+
+#sum
+count = 0
+print('Before', count)
+for thing in [9,41,12,3,74,15]:
+    count = count + thing
+    print(count, thing)
+print('After', count)
+
+#sum & Count
+count = 0
+sum = 0
+print('Before', count, sum)
+for value in [9,41,12,3,74,15]:
+    count = count + 1
+    sum = sum + value
+    print(count, sum, value)
+print('After', count, sum, sum/count)
+
+#Largest
+print('Before')
+for digit in [9,41,12,3,74,15]:
+    if digit > 20:
+        print('Large Number', digit)
+print('Done')
+
+#Finding
+found = False
+print('Before', found)
+for bool in [9,41,12,3,74,15]:
+    if  bool == 3 :
+        found = True
+    print(found, bool)
+print('After', found)
 
 #LEN
 clients = 0
@@ -603,6 +678,26 @@ total = 0
 for num in [3, 41, 12, 9, 74, 15]:
 	total = total + num
 print('Total: ', total)
+
+total = 0
+inp = (input('Enter Digits'))
+num = inp.split()
+print(num)
+for numb in num:
+	total = total + int(numb)
+print(total)
+
+#Saving my Ass
+input_string = input('Enter Digits')
+print('\n')
+user_list = input_string.split()
+
+print('list: ', user_list)
+
+for i in range(len(user_list)):
+
+    user_list[i] = int(user_list[i])
+print('sum =', sum(user_list))
 
 #MAX
 Largest = None
@@ -651,6 +746,20 @@ while True:
 
 print("Total", total ,  "Count" , count,  "Average", average)
 
+#A BETTER WAY
+num = list()
+while True:
+    inp = input('Enter a number \n')
+    if inp == 'done': break
+    try:
+        value = float(inp)
+        num.append(value)
+    except:
+        print('Please check your input')
+
+print("Total", sum(num) ,  "Count" , len(num),  "Average", sum(num)/len(num
+
+
 while True:
 	num = int(input('Enter a number \n'))
 	if num == 'done':
@@ -661,12 +770,30 @@ for numb in num:
 	total = num + numb
 	print('Numb: ',numb)
 
+for numb in num:
+	total = total + numb
+	print('Numb: ',numb)
 
-
+num = input()
+numbers = num.split()
 i = 0
 while i < len(numbers):
     print(numbers[i])
     i = i + 1
+
+num = list()
+while True:
+	inp = input('Enter Numbers')
+	if inp == 'done': break
+	value = int(inp)
+	num.append(value)
+
+print(sum(num), len(num))
+print(num[0])
+
+
+
+print(type(numbers))
 
 numbers = range(5,10, 2)
 for number in numbers:
@@ -691,53 +818,7 @@ while i < 5:
 else:
     print(0)
 
-
-
-#Definite loops using for
-friends = ['Ace', 'Bsal', 'Bib', 'Kal']
-for friend in friends:
-    print('Wassup', friend)
-
-#Counting and Summing loops
-total = 0
-for intervar in [3, 41, 12, 9, 74, 15]:
-    total = total + intervar
-print('Total:',total)
-
-#Mximum and Minimum loops
-largest = None
-print('Before:' , largest)
-for itervar in [3, 41, 12, 9, 74, 15]:
-    if largest is None or itervar > largest :
-        largest = itervar
-    print('loop:' , itervar, largest)
-print('Largest:' , largest)
-
-
-smallest = None
-print('Before:' , smallest)
-for itervar in [3, 41, 12, 9, 74, 15]:
-    if smallest is None or itervar > smallest :
-        largest = itervar
-    print('loop:' , itervar, smallest)
-print('Smallest:' , smallest)
-
-#Exercise 5.9 uncompleted
-total = 0
-while True:
-
-    line = input("Enter a number")
-    line = line(int)
-
-    if line < '10':
-        print(line)
-        continue
-    if line == 'done':
-        break
-
-    for intervar in [line]:
-        total = total + intervar
-    print('Total:', total)
+#STRINGS
 
 #SLICES
 fruit = "banana"
@@ -757,13 +838,31 @@ while index < len(fruit):
 for char in fruit:
     print(char)
 
+for letter in 'banana':
+    print(letter)
+
+#Number of letters
+word = 'banana'
+count = 0
+for letter in word:
+    if letter == 'a':
+        count = count + 1
+print(count)
+
 
 #String slices
+
+s = 'monty python'
+print(s [0:5])
+print(s[6:12])
+
+print(fruit[:3])
+print(fruit[3:])
 
 s = 'Python  Guru'
 print(s[0:6])
 print(s[8:12])
-print(s[:7])
+print(s[:6])
 print(s[8:])
 
 fruit = "banana"
@@ -785,22 +884,21 @@ print(title )
 print('Guru' in title)
 
 
-s = 'monty python'
-print(s [0:5])
-print(s[6:12])
-
-print(fruit[:3])
-print(fruit[3:])
-
 #Strings are immutable
 fruit = 'banana'
 greeting = 'Hello, world!'
 new_greeting = 'J' + greeting[1:]
 print(new_greeting)
 
+type(banana)
+dir(banana)
+
 #The in operator/Looping and Counting
 fruit = 'banana'
 print('a' in fruit)
+
+x = 'n' in fruit
+print(x)
 
 word = 'banana'
 count = 0
@@ -842,6 +940,8 @@ else:
     print('All right, bananas.')
 
 #Strings methods/parsing strings
+
+print('Hi There' .lower())
 word = 'banana'
 new_word = word.upper()
 print(new_word)
@@ -850,7 +950,17 @@ word = 'banana'
 index = word.find('na', 4)
 print(index)
 
+print('Hi There'.lower())
+greet = 'Hello Kal'
+greeet =  greet.replace('Kal', 'Bib')
+print(greet)
+print(greeet)
+test = greeet.replace('o', 'x')
+print(test)
+
 line = '  Here we go  '
+line.lstrip()
+line.rstrip()
 line.strip()
 
 line = 'Have a nice day'
@@ -874,6 +984,8 @@ camels = 42
 print('i have spoted %d camels.' %camels)
 
 
+
+
 #exercise 6.14
 data = 'X-DSPAM-Confidence:0.8475'
 atpos = data.find('0')
@@ -881,7 +993,129 @@ print(atpos)
 print(data[19:25])
 float(0.8475)
 
+data = 'X-DSPAM-Confidence:0.8475'
+firstpos = data.find('0')
+
+extracted = data[firstpos:]
+slice = float(extracted)
+
+print(slice)
+print(type(slice))
+
 #Restart and understand everything
+
+#FILES
+stuff = 'Hello \nWorld '
+stufff = 'X\nY'
+print(len(stufff))
+print(stuff)
+
+#Opening File
+file = open("C:\ppy\mbox.txt")
+
+#Counting File lines
+count = 0
+for line in file:
+    count = count + 1
+print('Line Count:', count)
+
+#Len of file
+inp = file.read()
+print(len(inp))
+
+print(inp[:6687005])
+
+#Finding Startswith and striping
+for line in file:
+    if line.startswith(('From:')):
+        line = line.strip()
+        print(line)
+
+
+for line in file:
+    line = line.strip()
+    if not line.startswith(('From:')):
+        continue
+    print(line)
+
+
+for line in file:
+    line = line.strip()
+    if not '@uct.ac.za' in line:
+        continue
+    print(line)
+
+#Using inputs
+f = input('Enter file name: "C:\ppy\mbox.txt"\n')
+file = open(f)
+count = 0
+for line in file:
+    if line.startswith('Subject:'):
+        count = count + 1
+print('There were', count, 'Subject lins in', file)
+
+#Catching Exceptions
+f = input('Enter file name: C:\ppy\mbox.txt \n')
+try:
+    file = open(f)
+
+    count = 0
+    for line in file:
+        if line.startswith('Subject:'):
+            count = count + 1
+    print('There were', count, 'Subject lines in', file)
+except:
+    print('Invalid File:', f)
+
+#Writing Files
+fout = open('output.txt', 'w')
+print(fout)
+
+line1 = "This here's the wattle, \n"
+print(fout.write(line1))
+
+line2 = 'the emble of our land. \n'
+fout.write(line2)
+print(line2)
+
+fout.close
+
+
+for line in file:
+    line = line.strip()
+    if line.startswith('X-DSPAM-Confidence:'):
+        print(line.find(0))
+except:
+    print('Invalid File:', f)
+
+#EXERCISE
+
+f = input('Enter file  C:\ppy\mbox.txt \n')
+file = open(f)
+for line in file:
+    line = line.strip()
+    line = line.upper()
+    print(line[:50])
+
+
+f = input('Enter file  C:\ppy\mbox.txt \n')
+file = open(f)
+
+
+count = 0
+total = 0
+for line in file:
+    line = line.strip()
+    if line.startswith('X-DSPAM-Confidence:'):
+        pos = line.find('0')
+        extraction = line[pos:]
+        spam = float(extraction)
+        count = count + 1
+        total = total + spam
+
+print('There are', count, 'lines')
+print('Spam Confidence Average is', total/count)
+
 
 while True:
   try:
@@ -897,23 +1131,231 @@ while True:
   except:
        print("You're not serious")
 
+
+
+
 #Lists
 
-names =["Kal", "Sal", "Bal", "Dal"]
-names[0]="kall"
+names = ["Kal", "Sal", "Bal", "Dal"]
+names[0] = "kall"
 print(names[0:0])
 print(names)
 
-numbers = [ 1, 2, 3, 4, 5,]
+
+
+numbers = list()
 numbers.append(6)
+numbers.append(5)
+numbers.append(9)
+numbers.append(8)
+numbers.append(2)
 numbers.insert(0, -1)
-numbers.remove(3)
-
+numbers.remove(6)
+print(numbers)
 print(7 in numbers)
+print(7 not in numbers)
 print(len(numbers))
+print(sum(numbers))
+numbers.sort()
+print(numbers)
+print(sum(numbers)/len(numbers))
 
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+print(c)
+print(a)
+
+t = [9, 41, 12, 3, 74, 15]
+print(t[1:3])
+print(t[:4])
+print(t[3:])
+print(t[:])
 numbers = (1,2,3,3)
 print(numbers.count(3))
+
+
+total = 0
+count = 0
+while True:
+    inp = input('Enter Number')
+    if inp == 'done' : break
+    value = float(inp)
+    total = total + value
+    count = count + 1
+average = total / count
+print(average)
+
+numlist = list()
+while True:
+    inp = input('Enter Number')
+    if inp == 'done' : break
+    value = float(inp)
+    numlist.append(value)
+average = sum(numlist) / len(numlist)
+print(average)
+
+abc = 'With three words'
+stuff = abc.split()
+print(stuff)
+print(len(stuff))
+
+for thingy in stuff:
+	print(thingy)
+
+de = 'With;three;words'
+thing = de.split()
+print(thing)
+
+thing = de.split(';')
+print(thing)
+
+f = input('Enter file name: "C:\ppy\mbox.txt"\n')
+file = open(f)
+for line in file:
+	line = line.rstrip()
+	if not line.startswith('From ') : continue
+
+	words = line.split()
+	print(words[2])
+
+	email = words[1]
+	print(email)
+
+	pieces = email.split('@')
+	print(pieces[1])
+
+
+f = input('Enter file name: "C:\ppy\mbox.txt"\n')
+file = open(f)
+
+for line in file:
+	line = line.rstrip()
+	wds = line.split()
+
+	if len(wds) < 3 or wds[0] != 'From':
+		continue
+	print(wds[2])
+
+
+#DICTIONARIES
+store = {}
+store['Tires'] = 2
+store['Rims'] = 5
+store['nuts'] = 57
+print(store)
+print(store['nuts'])
+store['nuts'] = store['nuts'] + 3
+print(store)
+
+dic = dict()
+dic['Age'] = 22
+dic['Course'] = 'CS'
+print(dic)
+dic['Age'] = 23
+print(dic)
+
+counts = {}
+names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal", "Kal", "Sal", "Bal", "Dal", "Kal", "Bal"]
+for name in names :
+    if name not in counts:
+        counts[name] = 1
+    else:
+        counts[name] = counts[name] + 1
+print(counts)
+
+x = counts.get(name,0)
+print(x)
+
+counts = dict()
+names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal", "Kal", "Sal", "Bal", "Dal", "Kal", "Bal"]
+for name in names :
+    counts[name] = counts.get(name, 0) + 1
+print(counts)
+
+
+#
+counts = dict()
+text = ("the clown ran after the car and the car ran into the tent and the tent fell down on the clown and the")
+words = text.split()
+
+for word in words:
+    counts[word] = counts.get(word,0) + 1
+print('Counts', counts)
+
+
+
+
+counts = {'Name' : 'Jamal', 'Age' : 22, 'Height' : 183}
+for key in counts:
+    print(key, counts[key])
+
+
+anew = {'Name' : 'Jamal', 'Age' : 22, 'Height' : 183}
+print(list(anew))
+
+print(anew.keys())
+
+print(anew.values())
+
+print(anew.items())
+
+for key,value in anew.items() :
+    print(key, value)
+
+
+#EXERCISE
+
+file = input('Enter File: ')
+if len(file) < 1 : file = "C:\ppy\clown.txt" #"C:\ppy\intro.txt"
+handle = open(file)
+
+dic = {}
+for line in handle:
+    line = line.rstrip()
+    words = line.split()
+
+    for wrd in words:
+        #print(**, w, dic.get(wrd, - 99)
+        #oldcount = dic.get(wrd, 0)
+        #print(wrd, 'old', oldcount)
+        #newcount = oldcount + 1
+        #dic[wrd] = newcount
+        #print(w, 'new', newcount)
+        #dic[w] = dic.get(w,0) + 1
+        print(wrd)
+        if wrd in dic:
+            dic[wrd] = dic[wrd] + 1
+            print('Existing')
+        else:
+            dic[wrd] = 1
+            print('NEW')
+
+        print(wrd, dic[wrd])
+print(dic)
+
+dic = {}
+for line in handle:
+    line = line.rstrip()
+    words = line.split()
+
+    for word in words:
+        # If key is not there count is Zero
+        oldcount = dic.get(word, 0)
+        print(word, 'old', oldcount)
+
+        newcount = oldcount + 1
+        dic[word] = newcount
+        print(word, 'new', newcount)
+
+        if word in dic:
+            dic[word] = dic[word] + 1
+        else:
+            dic[word] = 1
+
+print(dic)
+
 # Project Details
 
 #Get customers name
@@ -925,7 +1367,6 @@ print(numbers.count(3))
 #Reminder 24 and 12 hours to
 #Inventory list
 
-else:
 if unit.upper == "C":
     if tempC >= 30:
         print(f"It is {tempC} in C")
@@ -972,5 +1413,5 @@ print("What would you like to order today? Kindly select a corresponding Number 
 
 print( "1. Cake \n2. Parfait \n3. Tres leches \n4. Brownie \n5. Milkshake \n")
 
-menu = ["blank", "1. Cake ", "2. Parfait", "3. Tres leches", "4. Brownie", "5. Milkshake", 1,2,3.4,5]
+menu = input(["blank", "1. Cake ", "2. Parfait", "3. Tres leches", "4. Brownie", "5. Milkshake"])
 print(type(menu))
