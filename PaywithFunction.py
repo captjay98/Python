@@ -3,13 +3,10 @@ while True:
         if hours > 40:
             regular_pay = hours * rate
             overtime_pay = (hours - 40.0) * (rate * 0.5)
-            total = regular_pay + overtime_pay
-            print(total)
-
+            pay = regular_pay + overtime_pay
         else:
-            total = hours * rate
-            print(total)
-            return total
+            pay = hours * rate
+        return pay
 
     try:
         hours = input('Enter Hours\n')
@@ -18,6 +15,6 @@ while True:
         rate = float(rate)
 
         pay = computepay(hours, rate)
-        print(pay)
+        print("Pay", pay)
     except:
         print('Enter Digits please')
