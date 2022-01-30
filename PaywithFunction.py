@@ -11,10 +11,12 @@ while True:
     try:
         hours = input('Enter Hours\n')
         rate = input('Enter Rate\n')
+
         hours = int(hours)
         rate = float(rate)
 
         pay = computepay(hours, rate)
         print("Pay", pay)
-    except:
-        print('Enter Digits please')
+
+    except ValueError:
+        print('Enter Digits Please')

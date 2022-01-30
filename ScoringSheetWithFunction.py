@@ -1,10 +1,9 @@
-#Keeping the scoring in a loop
-while True:
 
+# Keeping the scoring in a loop
+while True:
 
     # To catch and handle abberations
     try:
-
 
         # A function to store the scores
         def computegrade(score):
@@ -12,7 +11,6 @@ while True:
             return grade
 
         score = float(input("Enter Score"))
-
 
         # The scores and grading
         if computegrade(score) > 100 or computegrade(score) < 0:
@@ -31,8 +29,6 @@ while True:
             print('F')
         else:
             print('enter a valid score please')
-
-
     # Catching exceptions
-    except:
+    except ValueError:
         print('Please input digit')

@@ -1,4 +1,4 @@
-f = input('Enter file  C:\ppy\mbox.txt \n')
+f = input('Enter file \n')  # "C:\ppy\mbox.txt"
 file = open(f)
 
 count = 0
@@ -16,8 +16,7 @@ print('There are', count, 'lines')
 print('Spam Confidence Average is', total/count)
 
 
-
-f = input('Enter file  C:\ppy\mbox.txt \n')
+f = input('Enter file \n')  # "C:\ppy\mbox.txt"
 file = open(f)
 
 spam = list()

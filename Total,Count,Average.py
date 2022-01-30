@@ -7,7 +7,7 @@ while True:
     try:
         value = float(inp)
         num.append(value)
-    except:
+    except ValueError:
         print('Please check your input')
 
 print("Total", sum(num),  "Count", len(num),  "Average", sum(num)/len(num))

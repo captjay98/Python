@@ -48,5 +48,5 @@ while True:
         else:
             print('Enter C or F')
 
-    except:
+    except ValueError:
         print("Enter Digits Please")

@@ -1,6 +1,7 @@
 file = input('Enter File: ')
-if len(file) < 1: file = "C:\ppy\clown.txt"
- #"C:\ppy\intro.txt"
+if len(file) < 1: file = ''
+# 123"C:\ppy\clown.txt"
+
 handle = open(file)
 
 dic = {}

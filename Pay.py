@@ -16,5 +16,5 @@ while True:
         else:
             pay = hours * rate
             print(pay)
-    except:
+    except ValueError:
         print('Error, Please enter numeric input')

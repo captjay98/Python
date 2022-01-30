@@ -1,5 +1,5 @@
 weight = float(input("Please input weight \n"))
-unit= input("(K)g or (L)bs \n")
+unit = input("(K)g or (L)bs \n")
 
 if unit.upper() == "K":
     converted = weight / 0.45
@@ -10,4 +10,3 @@ if unit.upper() == "L":
     print("Weight in Kgs:" + str(converted))
 else:
     print("Enter either K or L")
-
