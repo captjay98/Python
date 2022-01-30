@@ -1,5 +1,6 @@
 file = input('Enter File: ')
-if len(file) < 1: file = "C:\ppy\clown.txt" #"C:\ppy\intro.txt"
+if len(file) < 1: file = "C:\ppy\clown.txt"
+ #"C:\ppy\intro.txt"
 handle = open(file)
 
 dic = {}
@@ -13,9 +14,9 @@ print(dic)
 
 largest = -1
 theword = None
-for key,value in dic.items():
-    print(key,value)
-    if value > largest :
+for key, value in dic.items():
+    print(key, value)
+    if value > largest:
         largest = value
         theword = key
-print('Done',theword, '--', largest)
+print('Done', theword, '--', largest)

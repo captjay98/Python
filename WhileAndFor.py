@@ -16,26 +16,32 @@
 #Operands
 #PEMDAS
 
+import random
+import math
+
+
 def func():
     print('updated')
-number1=input('Input Number 1\n')
-number2=input('input Number 2\n')
-number1=int(number1)
-number2=int(number2)
 
-multiplication= number1 * number2
 
-division= number1 * number2
+number1 = input('Input Number 1\n')
+number2 = input('input Number 2\n')
+number1 = int(number1)
+number2 = int(number2)
 
-quotient= number1 // number2
+multiplication = number1 * number2
 
-remainder= number1 % number2
+division = number1 * number2
 
-addition= number1 + number2
+quotient = number1 // number2
 
-substitution= number1 + number2
+remainder = number1 % number2
 
-exponentiation= number1 ** number2
+addition = number1 + number2
+
+substitution = number1 + number2
+
+exponentiation = number1 ** number2
 
 print(multiplication)
 
@@ -52,7 +58,6 @@ print(substitution)
 print(exponentiation)
 
 
-
 #input
 #Most repeated word finder in beginning of book
 name = input('enter file')
@@ -67,7 +72,7 @@ for line in handle:
 
 
 bigcount = None
-bigword  = None
+bigword = None
 for word, count in list(counts.items()):
     if bigcount is None or count > bigcount:
         bigword = word
@@ -80,7 +85,7 @@ print(age)
 
 #oe
 
-age= input(' how old are you?\n')
+age = input(' how old are you?\n')
 age = int(age)
 print(age + 2)
 
@@ -89,11 +94,11 @@ print(age + 2)
 name = input('please enter your name\n')
 print(name)
 
-hours =input('Enter Hours\n')
+hours = input('Enter Hours\n')
 hours = int(hours)
 
 rate = input('Enter Rate\n')
-rate =  float(rate)
+rate = float(rate)
 
 pay = (hours * rate)
 print(pay)
@@ -116,27 +121,25 @@ print(age)
 
 first_number = float(input("Enter First Number:"))
 
-second_number =float(input("Enter Second Number:"))
+second_number = float(input("Enter Second Number:"))
 
 sum = (first_number) + (second_number)
 
 print(sum)
 
-tempf= input('Please enter Temperature in C\n')
+tempf = input('Please enter Temperature in C\n')
 tempf = float(tempf)
 
 tempc = (tempf - 32.0) * 5.0 / 9.0
 print(tempc)
 
-tempf= input('Please enter Temperature in F\n')
+tempf = input('Please enter Temperature in F\n')
 
-try:
-    tempf = float(tempf)
+tempf = float(tempf)
+tempc = (tempf - 32.0) * 5.0 / 9.0
+print(tempc)
 
-    tempc = (tempf - 32.0) * 5.0 / 9.0
-    print(tempc)
-except:
-    print('Please enter a number')
+print('Please enter a number')
 
 #CHAPTER 3 CONDITIONAL EXECUTION
 #Boolean expressions
@@ -152,23 +155,23 @@ except:
 
 # Conditional Operators
 
-if 5%2 == 0 :
-    print ('x is even')
-else :
+if 5 % 2 == 0:
+    print('x is even')
+else:
     print('x is odd')
 if 1 > 0:
     print('positive')
-if 1> 0 :
+if 1 > 0:
     pass
 if 1 > 2:
     print('negative')
 
-if  1 < 0:
-   print('1 is less than 0')
+if 1 < 0:
+    print('1 is less than 0')
 elif 1 > 2:
-   print('x is greater than y')
+    print('x is greater than y')
 else:
-   print('x and y are equal')
+    print('x and y are equal')
 
 choice = input('enter letter\n')
 
@@ -179,7 +182,7 @@ elif choice == 'b':
 elif choice == 'c':
     print('close, but not correct')
 
-#EXWERCISE 3.11
+#EXERCISE 3.11
 try:
     hours = input('Enter Hours\n')
     hours = int(hours)
@@ -204,11 +207,10 @@ while True:
             grade = score
             return grade
 
-
         score = float(input("Enter Score"))
 
         if computegrade(score) > 1.0 or computegrade(score) < 0.0:
-            print('enter a valid score')
+            print('Enter Score beteen 0 - 1.0')
         elif computegrade(score) >= 0.9:
             print('A')
         elif computegrade(score) >= 0.8:
@@ -220,7 +222,7 @@ while True:
         elif computegrade(score) < 0.6:
             print('F')
         else:
-            print('enter a valid score please')
+            print('You be MUmU?')
 
     except:
         print('Please input digit')
@@ -318,6 +320,19 @@ def tempC(a):
     calc = int((temp - 32.0) * 5.0 / 9.0)
     return calc
 
+    if t >= 30:
+        print("It is Hot Today")
+
+    elif t >= 20:
+        print("It's a Nice Day")
+
+    elif t < 20:
+        print("It is Cold Today")
+
+    else:
+        print("Check Input please")
+
+
 while True:
     try:
 
@@ -330,20 +345,6 @@ while True:
         def celsius():
             tempc = int((t - 32.0) * 5.0 / 9.0)
             return tempc
-
-
-        if t >= 30:
-            print("It is Hot Today")
-
-        elif t >= 20:
-            print("It's a Nice Day")
-
-        elif t < 20:
-            print("It is Cold Today")
-
-        else:
-            print("Check Input please")
-
 
         unit = input("Enter Unit")
 
@@ -386,7 +387,7 @@ while True:
         print("Enter Digits Please")
 
 weight = float(input("Please input weight \n"))
-unit= input("(K)g or (L)bs \n")
+unit = input("(K)g or (L)bs \n")
 
 if unit.upper() == "K":
     converted = weight / 0.45
@@ -405,7 +406,6 @@ else:
 #math.sqrt()
 #math.poow(2 numbers base and exponent)
 
-import math
 
 degrees = 45
 radians = degrees / 360.0 * 2 * math.pi
@@ -413,26 +413,30 @@ radians = degrees / 360.0 * 2 * math.pi
 
 math.sin(radians)
 
-ratio = signal_power / noise_power
+signal_power = 0
+noise_power = 0
+ratio = signal_power/noise_power
 decibels = 10 * math.log10(ratio)
 
 #Exercise
-import random
 
 for i in range(10):
     x = random.random()
     print(x)
 
-random.radint(5,10)
+random.radint(5, 10)
 
-t = [1,2,3]
+t = [1, 2, 3]
 random.choice(t)
 
 #Adding New Functions
 
+
 def Fav_lyrics():
     print("Will Never love a'gain")
     print('The way i loved you.')
+
+
 print(Fav_lyrics())
 
 
@@ -440,9 +444,8 @@ def rep_fav():
     Fav_lyrics()
     Fav_lyrics()
 
-print(rep_fav())
 
-import math
+print(rep_fav())
 
 
 def print_twice():
@@ -460,15 +463,15 @@ def print_name_twice():
 
 print_name_twice()
 
-import math
 
 def print_twice(Jamal):
     print(Jamal)
     print(Jamal)
 
-print_twice('Jamal ' *4)  #Fruitful function
 
-print_twice('spam' *4)
+print_twice('Jamal ' * 4)  # Fruitful function
+
+print_twice('spam' * 4)
 
 print_twice(math.cos(math.pi))
 
@@ -480,32 +483,39 @@ print_twice(kal)
 
 #Value None is not the same as string None
 
-def jointwo(a,b):
+def jointwo(a, b):
     joined = a + b
     return joined
 
-x = input(jointwo())
+
+x = jointwo(int(input('Enter Digits')), int(input('Enter Digits')))
 print(x)
+
 
 def fred():
     print("ZAP")
 
+
 def jane():
     print('ABC')
+
 
 jane()
 fred()
 jane()
 
 
-
 def greet(lang):
     if lang == "es":
-        print('Hola')
+        return('Hola')
     elif lang == "fr":
-        print('Bonsoir')
+        return'Bonsoir'
     else:
         print('Hello. World!')
+
+
+print(greet("es"), "Jamal")
+
 
 def greeting():
     return 'Hello'
@@ -515,13 +525,19 @@ print(greet("fr"), "Jamal")
 
 print(greeting(), "Jamal")
 
+
 def addition(a, b):
     added = a + b
     return added
 
+
+test = addition(int(input('Enter Digits')), int(input('Enter Digits')))
+print(test)
+
 test = addition(5, 5)
 print(test)
- #EXERCISE 4.14
+
+#EXERCISE 4.14
 while True:
   try:
     hours = input('Enter Hours\n')
@@ -530,15 +546,15 @@ while True:
     rate = input('Enter Rate\n')
     rate = float(rate)
 
-    def computepay(a,b):
+    def computepay(a, b):
         pay = hours * rate
         return pay
 
     if hours > 40:
-       print(computepay() * 1.057)
+        print(computepay() * 1.057)
 
     if hours <= 40:
-       print(computepay())
+        print(computepay())
   except:
     print('Error, Please enter numeric input')
 
@@ -548,7 +564,7 @@ while True:
 #While statements
 
 i = 1
-while i<= 12:
+while i <= 12:
     print(i * '*')
     i = i + 1
 
@@ -564,10 +580,10 @@ while n < 2021 - 1998:
 print(f"He's now {n} years old")
 
 while True:
-	data = input('Enter Data \n')
-	if data == 'This is the Data':
-		break
-	print(data)
+    data = input('Enter Data \n')
+    if data == 'This is the Data':
+        break
+    print(data)
 
 print("Here's the correct data")
 
@@ -579,16 +595,16 @@ print('Boom Shakalaka')
 
 #Finishing iterations with continue
 while True:
-	data = input('Enter Data \n')
-	if data[0] == "#" :
-		continue
-	if data == 'Data1':
-		break
-	print(data)
+    data = input('Enter Data \n')
+    if data[0] == "#":
+        continue
+    if data == 'Data1':
+        break
+    print(data)
 print("Here's the correct data")
 
 #For loops
-numbers = [ 1, 2, 3, 4, 5,]
+numbers = [1, 2, 3, 4, 5, ]
 for number in numbers:
     print(numbers)
 
@@ -598,16 +614,15 @@ for friend in friends:
     print('Wassup', friend)
 
 
-
 clients = ['ASD', 'BSD', 'CSD', 'DSD', 'ESD', 'FSD', 'GSD']
 for client in clients:
-	print('Thank you for your patronage', client)
+    print('Thank you for your patronage', client)
 print('Success')
 
 #Largest
 largest_so_far = -1
 print('Before', largest_so_far)
-for the_num in [9,41,12,3,74,15] :
+for the_num in [9, 41, 12, 3, 74, 15]:
     if the_num > largest_so_far:
         largest_so_far = the_num
     print(largest_so_far, the_num)
@@ -617,10 +632,10 @@ print('After', largest_so_far)
 #Smalllest
 smallest = None
 print('Before')
-for value in [9 ,41,12,3,74,15] :
-    if smallest is None :
+for value in [9, 41, 12, 3, 74, 15]:
+    if smallest is None:
         smallest = value
-    elif value < smallest :
+    elif value < smallest:
         smallest = value
     print(smallest, value)
 print('After', smallest)
@@ -628,7 +643,7 @@ print('After', smallest)
 #Counting
 count = 0
 print('before', count)
-for num in [9,41,12,3,74,15]:
+for num in [9, 41, 12, 3, 74, 15]:
     count = count + 1
     print(count, num)
 print('After', count)
@@ -636,7 +651,7 @@ print('After', count)
 #sum
 count = 0
 print('Before', count)
-for thing in [9,41,12,3,74,15]:
+for thing in [9, 41, 12, 3, 74, 15]:
     count = count + thing
     print(count, thing)
 print('After', count)
@@ -645,7 +660,7 @@ print('After', count)
 count = 0
 sum = 0
 print('Before', count, sum)
-for value in [9,41,12,3,74,15]:
+for value in [9, 41, 12, 3, 74, 15]:
     count = count + 1
     sum = sum + value
     print(count, sum, value)
@@ -653,7 +668,7 @@ print('After', count, sum, sum/count)
 
 #Largest
 print('Before')
-for digit in [9,41,12,3,74,15]:
+for digit in [9, 41, 12, 3, 74, 15]:
     if digit > 20:
         print('Large Number', digit)
 print('Done')
@@ -661,8 +676,8 @@ print('Done')
 #Finding
 found = False
 print('Before', found)
-for bool in [9,41,12,3,74,15]:
-    if  bool == 3 :
+for bool in [9, 41, 12, 3, 74, 15]:
+    if bool == 3:
         found = True
     print(found, bool)
 print('After', found)
@@ -670,13 +685,13 @@ print('After', found)
 #LEN
 clients = 0
 for client in [3, 41, 12, 9, 74, 15]:
-	clients = clients + 1
+    clients = clients + 1
 print('Clients: ', clients)
 
 #SUM
 total = 0
 for num in [3, 41, 12, 9, 74, 15]:
-	total = total + num
+    total = total + num
 print('Total: ', total)
 
 total = 0
@@ -684,7 +699,7 @@ inp = (input('Enter Digits'))
 num = inp.split()
 print(num)
 for numb in num:
-	total = total + int(numb)
+    total = total + int(numb)
 print(total)
 
 #Saving my Ass
@@ -702,20 +717,21 @@ print('sum =', sum(user_list))
 #MAX
 Largest = None
 print('Before:', Largest)
-for itervar in [3, 41, 12, 9, 74, 15] :
-	if Largest is None or itervar > Largest:
-		Largest = itervar
-	print('Loop:', itervar, Largest)
+for itervar in [3, 41, 12, 9, 74, 15]:
+    if Largest is None or itervar > Largest:
+        Largest = itervar
+    print('Loop:', itervar, Largest)
 print('Largest:',  Largest)
 
 #MIN
 smallest = None
 print('Before:', smallest)
 for itervar in [3, 41, 12, 9, 74, 15]:
-	if smallest is None or itervar < smallest:
-		smallest = itervar
-	print('Loop:', itervar, smallest)
+    if smallest is None or itervar < smallest:
+        smallest = itervar
+    print('Loop:', itervar, smallest)
 print('Smallest:', smallest)
+
 
 def min(values):
     smallest = None
@@ -726,53 +742,55 @@ def min(values):
 
 #EXERCISE 5.9
 
-num= 0
+
+num = 0
 total = 0
 count = 0
-average= 0
+average = 0
 
 while True:
-	num = input('Enter a number \n')
-	if num == 'done':
-		break
-	try:
-		float(num)
-	except:
-		print('Invalid input')
-		continue
-	total = total + float(num)
-	count = count + 1
-	average = total / count
+    num = input('Enter a number \n')
+    if num == 'done':
+        break
+    try:
+        float(num)
+    except:
+        print('Invalid input')
+    continue
+    total = total + float(num)
+    count = count + 1
+    average = total / count
 
-print("Total", total ,  "Count" , count,  "Average", average)
+print("Total", total,  "Count", count,  "Average", average)
 
 #A BETTER WAY
 num = list()
 while True:
     inp = input('Enter a number \n')
-    if inp == 'done': break
+    if inp == 'done':
+        break
     try:
         value = float(inp)
         num.append(value)
     except:
         print('Please check your input')
 
-print("Total", sum(num) ,  "Count" , len(num),  "Average", sum(num)/len(num
+print("Total", sum(num),  "Count", len(num),  "Average", sum(num)/len(num))
 
 
 while True:
-	num = int(input('Enter a number \n'))
-	if num == 'done':
-		break
-	print(num)
+    num = int(input('Enter a number \n'))
+    if num == 'done':
+       break
+    print(num)
 
 for numb in num:
-	total = num + numb
-	print('Numb: ',numb)
+    total = num + numb
+    print('Numb: ', numb)
 
 for numb in num:
-	total = total + numb
-	print('Numb: ',numb)
+    total = total + numb
+    print('Numb: ', numb)
 
 num = input()
 numbers = num.split()
@@ -783,19 +801,19 @@ while i < len(numbers):
 
 num = list()
 while True:
-	inp = input('Enter Numbers')
-	if inp == 'done': break
-	value = int(inp)
-	num.append(value)
+    inp = input('Enter Numbers')
+    if inp == 'done':
+        break
+    value = int(inp)
+    num.append(value)
 
 print(sum(num), len(num))
 print(num[0])
 
 
-
 print(type(numbers))
 
-numbers = range(5,10, 2)
+numbers = range(5, 10, 2)
 for number in numbers:
     print(number)
 
@@ -853,7 +871,7 @@ print(count)
 #String slices
 
 s = 'monty python'
-print(s [0:5])
+print(s[0:5])
 print(s[6:12])
 
 print(fruit[:3])
@@ -869,18 +887,18 @@ fruit = "banana"
 print(fruit[:])
 
 example = "WADUP, DAWG?"
-new_example ='WAS' + example[3:]
+new_example = 'WAS' + example[3:]
 print(example)
 print(new_example)
 
 
 title = "Python Automation Guru"
-        #0123456789
+#0123456789
 print(title.upper())
 print(title.lower())
 print(title.find('i'))
 print(title.replace('Guru', 'Enthusiast'))
-print(title )
+print(title)
 print('Guru' in title)
 
 
@@ -890,8 +908,6 @@ greeting = 'Hello, world!'
 new_greeting = 'J' + greeting[1:]
 print(new_greeting)
 
-type(banana)
-dir(banana)
 
 #The in operator/Looping and Counting
 fruit = 'banana'
@@ -907,24 +923,31 @@ for letter in word:
         count = count + 1
 print(count)
 
+
 def countLetters(str, l):
-	content = str
-	count = 0
-	for letter in content:
-		if letter == l:
-			count = count + 1
-	print(count)
+    content = str
+    count = 0
+    for letter in content:
+        if letter == l:
+            count = count + 1
+    print(count)
+
+
 print(countLetters('bananaaaaaaaa', 'a'))
 
 #Counter function
+
+
 def counter(s, l):
-	string = str(s)
-	letter = str(l)
-	count = 0
-	for alpha in string:
-		if alpha == letter:
-			count = count + 1
-	print(count)
+    string = str(s)
+    letter = str(l)
+    count = 0
+    for alpha in string:
+        if alpha == letter:
+            count = count + 1
+    print(count)
+
+
 print(counter('banana', 'a'))
 
 #String Comparison
@@ -952,7 +975,7 @@ print(index)
 
 print('Hi There'.lower())
 greet = 'Hello Kal'
-greeet =  greet.replace('Kal', 'Bib')
+greeet = greet.replace('Kal', 'Bib')
 print(greet)
 print(greeet)
 test = greeet.replace('o', 'x')
@@ -981,9 +1004,7 @@ print(host)
 #Format operator
 camels = 42
 '%d' % camels
-print('i have spoted %d camels.' %camels)
-
-
+print('i have spoted %d camels.' % camels)
 
 
 #exercise 6.14
@@ -1085,7 +1106,7 @@ for line in file:
     line = line.strip()
     if line.startswith('X-DSPAM-Confidence:'):
         print(line.find(0))
-except:
+#except:
     print('Invalid File:', f)
 
 #EXERCISE
@@ -1119,19 +1140,17 @@ print('Spam Confidence Average is', total/count)
 
 while True:
   try:
-        s = input("What?")
+      s = input("What?")
 
-        if s == ("I Love You Python") :
-            print('I Love You Too Capt Jay')
-            break
+      if s == ("I Love You Python"):
+          print('I Love You Too Capt Jay')
+          break
 
-        else:
-            print("I don't know what you're saying")
+      else:
+          print("I don't know what you're saying")
 
   except:
-       print("You're not serious")
-
-
+      print("You're not serious")
 
 
 #Lists
@@ -1140,7 +1159,6 @@ names = ["Kal", "Sal", "Bal", "Dal"]
 names[0] = "kall"
 print(names[0:0])
 print(names)
-
 
 
 numbers = list()
@@ -1172,7 +1190,7 @@ print(t[1:3])
 print(t[:4])
 print(t[3:])
 print(t[:])
-numbers = (1,2,3,3)
+numbers = (1, 2, 3, 3)
 print(numbers.count(3))
 
 
@@ -1180,7 +1198,8 @@ total = 0
 count = 0
 while True:
     inp = input('Enter Number')
-    if inp == 'done' : break
+    if inp == 'done':
+        break
     value = float(inp)
     total = total + value
     count = count + 1
@@ -1190,7 +1209,8 @@ print(average)
 numlist = list()
 while True:
     inp = input('Enter Number')
-    if inp == 'done' : break
+    if inp == 'done':
+        break
     value = float(inp)
     numlist.append(value)
 average = sum(numlist) / len(numlist)
@@ -1202,7 +1222,7 @@ print(stuff)
 print(len(stuff))
 
 for thingy in stuff:
-	print(thingy)
+    print(thingy)
 
 de = 'With;three;words'
 thing = de.split()
@@ -1214,29 +1234,30 @@ print(thing)
 f = input('Enter file name: "C:\ppy\mbox.txt"\n')
 file = open(f)
 for line in file:
-	line = line.rstrip()
-	if not line.startswith('From ') : continue
+    line = line.rstrip()
+    if not line.startswith('From '):
+        continue
 
-	words = line.split()
-	print(words[2])
+    words = line.split()
+    print(words[2])
 
-	email = words[1]
-	print(email)
+    email = words[1]
+    print(email)
 
-	pieces = email.split('@')
-	print(pieces[1])
+    pieces = email.split('@')
+    print(pieces[1])
 
 
 f = input('Enter file name: "C:\ppy\mbox.txt"\n')
 file = open(f)
 
 for line in file:
-	line = line.rstrip()
-	wds = line.split()
+    line = line.rstrip()
+    wds = line.split()
 
-	if len(wds) < 3 or wds[0] != 'From':
-		continue
-	print(wds[2])
+    if len(wds) < 3 or wds[0] != 'From':
+        continue
+    print(wds[2])
 
 
 #DICTIONARIES
@@ -1257,20 +1278,21 @@ dic['Age'] = 23
 print(dic)
 
 counts = {}
-names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal", "Kal", "Sal", "Bal", "Dal", "Kal", "Bal"]
-for name in names :
+names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal", "Kal", "Sal", "Kal", "Bal"]
+for name in names:
     if name not in counts:
         counts[name] = 1
     else:
         counts[name] = counts[name] + 1
 print(counts)
 
-x = counts.get(name,0)
+x = counts.get(name, 0)
 print(x)
 
 counts = dict()
-names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal", "Kal", "Sal", "Bal", "Dal", "Kal", "Bal"]
-for name in names :
+names = ["Kal", "Sal", "Bal", "Dal", "Kal", "Bal",
+         "Kal", "Sal", "Bal", "Dal", "Kal", "Bal"]
+for name in names:
     counts[name] = counts.get(name, 0) + 1
 print(counts)
 
@@ -1281,18 +1303,16 @@ text = ("the clown ran after the car and the car ran into the tent and the tent 
 words = text.split()
 
 for word in words:
-    counts[word] = counts.get(word,0) + 1
+    counts[word] = counts.get(word, 0) + 1
 print('Counts', counts)
 
 
-
-
-counts = {'Name' : 'Jamal', 'Age' : 22, 'Height' : 183}
+counts = {'Name': 'Jamal', 'Age': 22, 'Height': 183}
 for key in counts:
     print(key, counts[key])
 
 
-anew = {'Name' : 'Jamal', 'Age' : 22, 'Height' : 183}
+anew = {'Name': 'Jamal', 'Age': 22, 'Height': 183}
 print(list(anew))
 
 print(anew.keys())
@@ -1301,14 +1321,15 @@ print(anew.values())
 
 print(anew.items())
 
-for key,value in anew.items() :
+for key, value in anew.items():
     print(key, value)
 
 
 #EXERCISE
 
 file = input('Enter File: ')
-if len(file) < 1 : file = "C:\ppy\clown.txt" #"C:\ppy\intro.txt"
+if len(file) < 1:
+    file = "C:\ppy\clown.txt"  # "C:\ppy\intro.txt"
 handle = open(file)
 
 dic = {}
@@ -1384,34 +1405,18 @@ if unit.upper == "C":
         print("Check your input")
 
 
-  def tempF():
-            tf = temp
-            return tf
-
-
-def tempC():
-    tc = int((temp - 32.0) * 5.0 / 9.0)
-    return tc
-
-def tempF():
-    tempF = temperature
-    return tempF
-
-
-def tempC():
-    tempC = temp
-    return tempC
-
-
 #Building a Kalbot
 
-client_name = input('Hello, This is the Kalbot, May i Know your name please?\n')
+client_name = input(
+    'Hello, This is the Kalbot, May i Know your name please?\n')
 
 print('Welcome to Kalbites', client_name)
 
-print("What would you like to order today? Kindly select a corresponding Number from the Menu below, Thank You. \n")
+print("What would you like to order today?  \n")
+print("Kindly select a corresponding Number from the Menu below,Thank You \n.")
 
-print( "1. Cake \n2. Parfait \n3. Tres leches \n4. Brownie \n5. Milkshake \n")
+print("1. Cake \n2. Parfait \n3. Tres leches \n4. Brownie \n5. Milkshake \n")
 
-menu = input(["blank", "1. Cake ", "2. Parfait", "3. Tres leches", "4. Brownie", "5. Milkshake"])
+menu = input(["blank", "1. Cake ", "2. Parfait",
+              "3. Tres leches", "4. Brownie", "5. Milkshake"])
 print(type(menu))

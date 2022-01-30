@@ -12,7 +12,6 @@ for line in file:
         count = count + 1
         total = total + spam
 
-
 print('There are', count, 'lines')
 print('Spam Confidence Average is', total/count)
 
@@ -20,7 +19,6 @@ print('Spam Confidence Average is', total/count)
 
 f = input('Enter file  C:\ppy\mbox.txt \n')
 file = open(f)
-
 
 spam = list()
 for line in file:
@@ -32,10 +30,5 @@ for line in file:
         spam.append(value)
 
 average = sum(spam) / len(spam)
-print('There are', count, 'lines')
+print('There are', len(spam), 'lines')
 print('Spam Confidence Average is', average)
-
-
-
-
-

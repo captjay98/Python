@@ -1,0 +1,19 @@
+<html>
+
+<head><title>Friends of mine</title></head>
+<body>
+<h1>Friends of mine</h1>
+<ul>
+<?php
+$connection = @mysql_connect("localhost", "my_username", "my_pass");
+mysql_select_db("my_database");
+$people = mysql_query("SELECT name, age FROM friends");
+while ( $person = mysql_fetch_array($people, MYSQL_ASSOC) ) {
+?>
+<li>
+<?php echo $person['name'] ?> is <?php echo $person['age'] ?> years old.
+</li>
+<?php } ?>
+</ul>
+</body>
+</html>
