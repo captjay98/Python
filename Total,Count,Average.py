@@ -1,17 +1,13 @@
-total = 0
-count = 0
-average = 0
 
+num = list()
 while True:
-    num = input('Enter a number \n')
-    if num == 'done':
+    inp = input('Enter a number \n')
+    if inp == 'done':
         break
     try:
-        num = float(num)
+        value = float(inp)
+        num.append(value)
     except:
-        print('Invalid input')
-        continue
-    total = total + num
-    count = count + 1
-    average = total / count
-print("Total", total , "Count" , count,  "Average", average)
+        print('Please check your input')
+
+print("Total", sum(num),  "Count", len(num),  "Average", sum(num)/len(num))
