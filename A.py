@@ -11,3 +11,5 @@ for (key, value) in dic.items():
 
 tups = dic.items()
 print(tups)
+
+(5, 6, 7)
