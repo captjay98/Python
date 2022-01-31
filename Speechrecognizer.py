@@ -7,9 +7,8 @@ with sr.Microphone()  as source:
 
     try:
         rcognised_text = r.recognize_google(text)
-        print(recognised_text)
+        print('recognised_text')
     except sr.UnknownValueError:
             print("")
     except sr.RequestError as e:
             print("")
-    

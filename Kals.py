@@ -1,6 +1,6 @@
 file = input('Enter File: ')
-if len(file) < 1: file = ''
-# 123"C:\ppy\clown.txt"
+if len(file) < 1:
+    file = 'C:\ppy\intro.txt'
 
 handle = open(file)
 
@@ -11,7 +11,8 @@ for line in handle:
     for word in words:
         dic[word] = dic.get(word, 0) + 1
         print(word, 'new', dic[word])
-print(dic)
+# print(dic)
+
 
 largest = -1
 theword = None
