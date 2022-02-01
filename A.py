@@ -1,15 +1,8 @@
-(Name, Age) = ('Jamal', 23)
+import re
 
-print(Name, Age)
+file = open('C:\ppy\mbox.txt')
 
-dic = {}
-dic['name'] = 'Jamal'
-dic['age'] = 98
-
-for (key, value) in dic.items():
-    print(key, value)
-
-tups = dic.items()
-print(tups)
-
-(5, 6, 7)
+for line in file:
+    line = line.rstrip()
+    if re.search('^From:', line):
+        print(line)

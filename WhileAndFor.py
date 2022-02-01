@@ -1367,7 +1367,6 @@ for line in handle:
         print(word, 'new', dic[word])
 # print(dic)
 
-
 largest = -1
 theword = None
 for key, value in dic.items():
@@ -1377,8 +1376,24 @@ for key, value in dic.items():
         theword = key
 print('Done', theword, '--', largest)
 
-
 # Tuples
+
+(Name, Age) = ('Jamal', 23)
+
+print(Name, Age)
+
+dic = {}
+dic['name'] = 'Jamal'
+dic['age'] = 98
+
+for (key, value) in dic.items():
+    print(key, value)
+
+tups = dic.items()
+print(tups)
+
+(5, 6, 7)
+
 
 # Get customers name
 # Get order Date
