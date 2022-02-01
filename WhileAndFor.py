@@ -1300,8 +1300,9 @@ print(counts)
 
 #
 counts = dict()
-text = ("the clown ran after the car and the car ran into the tent t")
-# "and the ten fell down on the clown and the")
+text = input("Enter Text :")
+# "the clown ran after the car and the car ran into the tent the and the ten
+# fell down on the clown and the")
 words = text.split()
 
 for word in words:
@@ -1329,35 +1330,6 @@ for key, value in anew.items():
 
 # EXERCISE
 
-file = input('Enter File: ')
-if len(file) < 1:
-    file = ""  # "C:\ppy\intro.txt"
-handle = open(file)
-
-dic = {}
-for line in handle:
-    line = line.rstrip()
-    words = line.split()
-
-    for wrd in words:
-        # print(**, w, dic.get(wrd, - 99)
-        # oldcount = dic.get(wrd, 0)
-        # print(wrd, 'old', oldcount)
-        # newcount = oldcount + 1
-        # dic[wrd] = newcount
-        # print(w, 'new', newcount)
-        # dic[w] = dic.get(w,0) + 1
-        print(wrd)
-        if wrd in dic:
-            dic[wrd] = dic[wrd] + 1
-            print('Existing')
-        else:
-            dic[wrd] = 1
-            print('NEW')
-
-        print(wrd, dic[wrd])
-print(dic)
-
 dic = {}
 for line in handle:
     line = line.rstrip()
@@ -1379,7 +1351,34 @@ for line in handle:
 
 print(dic)
 
-# Project Details
+
+file = input('Enter File: ')
+if len(file) < 1:
+    file = 'C:\ppy\intro.txt'
+
+handle = open(file)
+
+dic = {}
+for line in handle:
+    line = line.rstrip()
+    words = line.split()
+    for word in words:
+        dic[word] = dic.get(word, 0) + 1
+        print(word, 'new', dic[word])
+# print(dic)
+
+
+largest = -1
+theword = None
+for key, value in dic.items():
+    print(key, value)
+    if value > largest:
+        largest = value
+        theword = key
+print('Done', theword, '--', largest)
+
+
+# Tuples
 
 # Get customers name
 # Get order Date
@@ -1389,23 +1388,6 @@ print(dic)
 # Delivery Details
 # Reminder 24 and 12 hours to
 # Inventory list
-
-if unit.upper == "C":
-    if tempC >= 30:
-        print(f"It is {tempC} in C")
-        print("It's a hot day, Stay Hydrated")
-
-    elif tempC >= 20:
-        print(f"It is {tempC} in C")
-        print("It's a nice day")
-
-    elif tempC < 20:
-        print(f"It is {tempC} in C")
-        print("It's chilly today")
-
-    else:
-        print("Check your input")
-
 
 # Building a Kalbot
 
