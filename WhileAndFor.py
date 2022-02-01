@@ -1394,6 +1394,122 @@ print(tups)
 
 (5, 6, 7)
 
+tools = {'cox': 9, 'box': 7, 'axe': 5}
+print(tools.items())
+print(sorted(tools.items()))
+
+for (key, value) in sorted(tools.items()):
+    print(key, value)
+
+tem = list()
+for key, value in tools.items():
+    tem.append((value, key))
+print(tem)
+tem = sorted(tem, reverse=False)
+print(tem)
+
+
+(Name, Age) = ('Jamal', 23)
+
+print(Name, Age)
+
+dic = {}
+dic['name'] = 'Jamal'
+dic['age'] = 98
+
+for (key, value) in dic.items():
+    print(key, value)
+
+tups = dic.items()
+print(tups)
+
+(5, 6, 7)
+
+file = open("C:\ppy\intro.txt")
+counts = {}
+for line in file:
+    words = line.split()
+    for word in words:
+        counts[word] = counts.get(word, 0) + 1
+
+lst = []
+for key, value in counts.items():
+    newtuple = (value, key)
+    lst.append(newtuple)
+
+lst = sorted(lst, reverse=True)
+
+for value, key in lst[:10]:
+    print(key, value)
+
+tools = {'cox': 9, 'box': 7, 'axe': 5}
+
+print(sorted([(value, key) for key, value in tools.items()]))
+
+# Regular Expressions
+
+import re
+
+file = open('C:\ppy\mbox.txt')
+
+for line in file:
+    line = line.rstrip()
+    if re.search('^From:', line):
+        print(line)
+
+x = 'My 5 Favourite numbers are 98 and 0'
+y = re.findall('[0-9]+', x)
+print(y)
+
+# Greedy
+x = 'From: Using the : character'
+y = re.findall('^F.+:', x)
+print(y)
+
+# Not Greedy
+x = 'From: Using the : character'
+y = re.findall('^F.+?:', x)
+print(y)
+
+# Extract Email
+x = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'
+y = re.findall('\S+@\S+', x)
+print(y)
+
+# Extract Email
+x = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'
+y = re.findall('^From (\S+@\S+)', x)
+print(y)
+
+# REMOVE HOST
+x = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'
+y = re.findall('@([^ ]*)', x)
+print(y)
+
+x = 'From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008'
+y = re.findall('^From .*@([^ ]*)', x)
+print(y)
+
+# EXTRACTTION
+file = open('C:\ppy\mbox.txt')
+numlist = []
+for line in file:
+    line = line.rstrip()
+    stuff = re.findall('^X-DSPAM-Confidence: ([0-9.]+)', line)
+    if len(stuff) != 1:
+        continue
+    num = float(stuff[0])
+    numlist.append(num)
+print('Maximum:', max(numlist))
+
+# More extraction
+x = 'We just received $10.00 for cookies.'
+y = re.findall('\$[0-9.]+', x)
+print(y)
+
+# Networked Programs
+
+
 
 # Get customers name
 # Get order Date
