@@ -16,6 +16,7 @@
 # Operands
 # PEMDAS
 
+import re
 import random
 import math
 
@@ -1392,7 +1393,10 @@ for (key, value) in dic.items():
 tups = dic.items()
 print(tups)
 
-(5, 6, 7)
+# only looks at the first value when comparing
+(5, 6, 7) > (6, 7)
+
+('j', 'k') > ('a', 'b')
 
 tools = {'cox': 9, 'box': 7, 'axe': 5}
 print(tools.items())
@@ -1448,7 +1452,6 @@ print(sorted([(value, key) for key, value in tools.items()]))
 
 # Regular Expressions
 
-import re
 
 file = open('C:\ppy\mbox.txt')
 
@@ -1508,7 +1511,6 @@ y = re.findall('\$[0-9.]+', x)
 print(y)
 
 # Networked Programs
-
 
 
 # Get customers name
