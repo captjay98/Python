@@ -16,6 +16,10 @@
 # Operands
 # PEMDAS
 
+import json
+import xml.etree.ElementTree as ET
+import ssl
+from bs4 import BeautifulSoup
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -1534,7 +1538,6 @@ mysock.close()
 
 # urllib
 
-
 file = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
 for line in file:
     print(line.decode().strip())
@@ -1548,15 +1551,6 @@ for line in file:
         counts[word] = counts.get(word, 0) + 1
 print(counts)
 
-file = urllib.request.urlopen('http://www.dr-chuck.com/page1.htm')
-for line in file:
-    print(line.decode().strip())
-
-import urllib.request
-import urllib.parse
-import urllib.error
-from bs4 import BeautifulSoup
-import ssl
 
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
@@ -1583,7 +1577,6 @@ for tag in tags:
 
 # xml
 
-import xml.etree.ElementTree as ET
 
 data = '''
 
@@ -1623,6 +1616,42 @@ for item in lst:
     print('Name:', item.find('name').text)
     print('Id', item.find('id').text)
     print('Attribute:', item.get("x"))
+
+
+# Json
+
+
+data = '''{"name" : "Jamal",
+"phone" : {
+  "type" : "intl",
+  "number" : "+2348137443466"
+  },
+"email" : {
+  "hide" : "yes"
+  }
+}'''
+
+info = json.loads(data)
+print('Name:', info["name"])
+print('hide:', info["email"]["hide"])
+
+
+data = '''[
+{"id" : "98",
+  "x" :"5",
+  "name" : "Jamal"},
+{"id" : "67",
+  "x" : "6",
+  "name" : "Ibrahim"
+  }]'''
+
+info = json.loads(data)
+print('User Count:', len(info))
+for item in info:
+    print('Name:', item['name'])
+    print('id:', item["id"])
+    print('Attribute', item['x'])
+
 
 # Get customers name
 # Get order Date
