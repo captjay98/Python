@@ -16,6 +16,10 @@
 # Operands
 # PEMDAS
 
+import urllib.error
+import urllib.parse
+import urllib.request
+import socket
 import re
 import random
 import math
@@ -1514,7 +1518,6 @@ print(y)
 
 # Sockets
 
-import socket
 
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mysock.connect(('data.pr4e.org', 80))
@@ -1531,9 +1534,6 @@ mysock.close()
 
 # urllib
 
-import urllib.request
-import urllib.parse
-import urllib.error
 
 file = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
 for line in file:
@@ -1552,6 +1552,77 @@ file = urllib.request.urlopen('http://www.dr-chuck.com/page1.htm')
 for line in file:
     print(line.decode().strip())
 
+import urllib.request
+import urllib.parse
+import urllib.error
+from bs4 import BeautifulSoup
+import ssl
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+url = input('Enter url==')
+html = urllib.request.urlopen(url).read()
+soup = BeautifulSoup(html, 'html.parser')
+
+tags = soup('a')
+for tag in tags:
+    print(tag.get('href', None))
+
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+url = input('Enter url==')
+html = urllib.request.urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, 'html.parser')
+
+tags = soup('a')
+for tag in tags:
+    print(tag.get('href', None))
+
+# xml
+
+import xml.etree.ElementTree as ET
+
+data = '''
+
+<person>
+<name>Jamal</name>
+<phone type="init">
+  +2348137443466
+</phone>
+<email hide="yes"/>
+</person>'''
+
+tree = ET.fromstring(data)
+print('Name:', tree.find('name').text)
+print('Attr:', tree.find('email').get('hide'))
+
+
+input = '''
+
+<stuff>
+  <users>
+    <user x="5">
+       <id>008</id>
+       <name>Jay</name>
+    </user>
+    <user x="6">
+       <id>009</id>
+       <name>CAP</name>
+    </user>
+  </users>
+</stuff>'''
+
+stuff = ET.fromstring(input)
+lst = stuff.findall('users/user')
+print('User Count', len(lst))
+
+for item in lst:
+    print('Name:', item.find('name').text)
+    print('Id', item.find('id').text)
+    print('Attribute:', item.get("x"))
 
 # Get customers name
 # Get order Date

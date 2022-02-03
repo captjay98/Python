@@ -1,28 +1,19 @@
+# Json
 
-# xml
+import json
 
-import xml.etree.ElementTree as ET
+data = '''[
+{"id" : "98",
+  "x" :"5",
+  "name" : "Jamal"},
+{"id" : "67",
+  "x" : "6",
+  "name" : "Ibrahim"
+  }]'''
 
-input = '''
-
-<stuff>
-  <users>
-    <user x="5">
-       <id>008</id>
-       <name>Jay</name>
-    </user>
-    <user x="6">
-       <id>009</id>
-       <name>CAP</name>
-    </user>
-  </users>
-</stuff>'''
-
-stuff = ET.fromstring(input)
-lst = stuff.findall('users/user')
-print('User Count', len(lst))
-
-for item in lst:
-    print('Name:', item.find('name').text)
-    print('Id', item.find('id').text)
-    print('Attribute:', item.get("x"))
+info = json.loads(data)
+print('User Count:', len(info))
+for item in info:
+    print('Name:', item['name'])
+    print('id:', item["id"])
+    print('Attribute', item['x'])
