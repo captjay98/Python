@@ -1,17 +1,15 @@
-# Sockets
 
-import socket
+# urllib
 
-mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-mysock.connect(('data.pr4e.org', 80))
+import urllib.request
+import urllib.parse
+import urllib.error
+from bs4 import BeautifulSoup
 
-cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\n\n'.encode()
-mysock.send(cmd)
+url = input('Enter url==')
+html = urllib.request.urlopen(url).read()
+soup = BeautifulSoup(html, 'html.parser')
 
-while True:
-    data = mysock.recv(512)
-    if (len(data) < 1):
-        break
-    print(data.decode())
-mysock.close()
-# HTTP
+tags = soup('a')
+for tag in tags:
+    print(tag.get('href', None))
