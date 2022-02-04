@@ -1,38 +1,34 @@
-#
+class Human:
 
-import urllib.request
-import urllib.parse
-import urllib.error
-import json
+    def __init__(self, name, age, occupation, height, weight, complexion):
+        self.name = name
+        self.occupation = occupation
+        self.age = age
+        self.height = height
+        self.weight = weight
+        self.complexion = complexion
 
-serviceurl = 'http://maps.googleapis.com/api/geocode/json?'
+    def likes(self):
+        if self.name == "Jamal":
+            print(self.name, "PlaYS Xbox games alot")
+        elif self.name == "random":
+            print(self.name, "does what humans do")
 
-while True:
-    address = input('Enter location:')
-    if len(address) < 1:
-        break
+    def speaks(self):
+        print(self.name, "Speaks English")
 
-    url = serviceurl + urllib.parse.urlencode({'address': address})
+    def loves(self):
+        if self.occupation == "Programmer":
+            print(self.name, "Loves Python")
+        elif self.occupation == "Graduate":
+            print(self.name, "Just doing regular work")
 
-    print('Retrieving', url)
-    ur = urllib.request.urlopen(url)
-    data = ur.read().decode()
-    print('Retrived', len(data), 'characters')
 
-    try:
-        js = json.loads(data)
-    except:
-        js = None
+me = Human("Jamal", 23, "Programmer", 180, 65, 'dark')
+me.likes()
+me.loves()
+me.speaks()
 
-    if not js or 'status' not in js or js['status'] != 'OK':
-        print('=== fAILURE TO RETIVE ===')
-        print(data)
-        continue
-
-    print(json.dumps(js, indent=4))
-
-    lat = js["results"][0]["geometry"]["location"]["lat"]
-    lng = js["results"][0]["geometry"]["location"]["lng"]
-    print('lat', lat, "lng", lng)
-    location = js['results'][0]['formatted_address']
-    print(location)
+print(f"Jamal is {me.age} years old")
+print(f"He is {me.height}CM Tall")
+print(f"And weighs {me.weight}KG")

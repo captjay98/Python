@@ -1652,7 +1652,101 @@ for item in info:
     print('id:', item["id"])
     print('Attribute', item['x'])
 
+# GEOJSON
 
+
+serviceurl = 'http://maps.googleapis.com/api/geocode/json?'
+
+while True:
+    address = input('Enter location:')
+    if len(address) < 1:
+        break
+
+    url = serviceurl + urllib.parse.urlencode({'address': address})
+
+    print('Retrieving', url)
+    ur = urllib.request.urlopen(url)
+    data = ur.read().decode()
+    print('Retrived', len(data), 'characters')
+
+    try:
+        js = json.loads(data)
+    except:
+        js = None
+
+    if not js or 'status' not in js or js['status'] != 'OK':
+        print('=== fAILURE TO RETIVE ===')
+        print(data)
+        continue
+
+    print(json.dumps(js, indent=4))
+
+    lat = js["results"][0]["geometry"]["location"]["lat"]
+    lng = js["results"][0]["geometry"]["location"]["lng"]
+    print('lat', lat, "lng", lng)
+    location = js['results'][0]['formatted_address']
+    print(location)
+
+OOP
+
+
+class Human:
+
+    def __init__(self, n, o):
+        self.name = n
+        self.occupation = o
+
+    def do_work(self):
+        if self.occupation == "Tennis":
+            print(self.name, "Play's Tennis")
+        elif self.occupation == "Actor":
+            print(self.name, "Makes Movies")
+
+    def speaks(self):
+        print(self.name, "Speaks English")
+
+
+tom = Human("Tom Cruise", "Actor")
+tom.do_work()
+tom.speaks()
+
+maria = Human('Maria Sharapova', "Tennis")
+maria.do_work()
+maria.speaks()
+
+print(type(Human))
+print(dir(Human))
+
+class Human:
+
+    def __init__(self, name, age, occupation, height, weight, complexion):
+        self.name = name
+        self.occupation = occupation
+        self.age = age
+        self.height = height
+        self.weight = weight
+        self.complexion = complexion
+
+    def likes(self):
+        if self.name == "Jamal":
+            print(self.name, "Plays Xbox games alot")
+        elif self.name == "random":
+            print(self.name, "does what humans do")
+
+    def speaks(self):
+        print(self.name, "Speaks English")
+
+    def loves(self):
+        if self.occupation == "Programmer":
+            print(self.name, "Loves Python")
+        elif self.occupation == "Graduate":
+            print(self.name, "Just doing regular work")
+
+
+me = Human("Jamal", 23, "Programmer", 180, 65, 'dark')
+me.likes()
+me.loves()
+me.speaks()
 # Get customers name
 # Get order Date
 # Get delivery date
