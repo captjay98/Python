@@ -1,4 +1,9 @@
-# abcdefg
+# This is the power of computer programming. A computer is like a
+# Swiss Army knife that you can configure for countless tasks. Many people
+# spend hours clicking and typing to perform repetitive tasks, unaware that
+# the machine they’re using could do their job in seconds if they gave it the
+# right instructions
+
 # page 31 chapter 2 VARIABLES, EXPRESSIONS AND STATEMENTS
 
 # Values and Types
@@ -407,6 +412,39 @@ if unit.upper() == "L":
     print("Weight in Kgs:" + str(converted))
 else:
     print("Enter either K or L")
+
+
+import sys
+
+while True:
+    print('Who are you?\n')
+    name = input()
+    if name != 'Jay':
+        continue
+    print('Helllo captain. What is your Password?(It is your Favourite thing)')
+    password = input()
+    if password == 'Xbox':
+        break
+print('Access Granted.')
+
+
+while True:
+    print('Type exit to exit')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('you typed', response, '.')
+print('Hello')
+
+
+while True:
+    print('Type exit to exit')
+    response = input()
+    if response == 'exit':
+        break
+    print('you typed', response, '.')
+print('Hello')
+
 # CHAPTER 4 FUNCTIONS
 # max, min, len,
 # import math
@@ -845,6 +883,37 @@ while i < 5:
         break
 else:
     print(0)
+
+# Guessing Gae
+import random
+secretnumber = random.randint(1, 20)
+
+print('I a thinking of a number between 1 and 20')
+
+while True:
+    try:
+        for guessesTaken in range(1, 7):
+            print('Take a guess')
+            guess = int(input())
+
+            if guess < secretnumber:
+                print('Guess too low')
+
+            elif guess > secretnumber:
+                print("Guess to High")
+
+            else:
+                break
+
+        if guess == secretnumber:
+            print('Good Job You guessed the number in', guessesTaken, 'guesses')
+
+        else:
+            print('Nah. The number i was thinking of was', secretnumber)
+        break
+
+    except ValueError:
+        print('Enter digits only')
 
 # STRINGS
 
@@ -1687,8 +1756,58 @@ while True:
     location = js['results'][0]['formatted_address']
     print(location)
 
-OOP
+# OOP
+class PartyAnimal:
+    x = 0
 
+    def __innit__(self):
+        print('I am constructed')
+
+    def party(self):
+        self.x = self.x + 1
+        print("So Far", self.x)
+
+    def __del__(self):
+        print('I am destructed', self.x)
+
+
+an = PartyAnimal()
+an.party()
+an.party()
+print(type(an))
+an = 5
+print('an contains', an)
+print(type(an))
+
+class PartyAnimal:
+    x = 0
+    name = ""
+
+    def __init__(self, z):
+        self.name = z
+        print(self.name, 'I am constructed')
+
+    def party(self):
+        self.x = self.x + 1
+        print(self.name, "Part Count", self.x)
+
+
+class FootballFan(PartyAnimal):
+    points = 0
+
+    def touchdown(self):
+        self.points = self.x + 7
+        self.party()
+        print(self.name, "party count", self.points)
+
+
+s = PartyAnimal("sally")
+s.party()
+
+
+j = FootballFan("jim")
+j.party()
+j.touchdown()
 
 class Human:
 
