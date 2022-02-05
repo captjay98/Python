@@ -1717,6 +1717,7 @@ maria.speaks()
 print(type(Human))
 print(dir(Human))
 
+
 class Human:
 
     def __init__(self, name, age, occupation, height, weight, complexion):
