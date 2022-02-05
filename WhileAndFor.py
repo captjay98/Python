@@ -21,6 +21,7 @@
 # Operands
 # PEMDAS
 
+import sys
 import json
 import xml.etree.ElementTree as ET
 import ssl
@@ -413,8 +414,6 @@ if unit.upper() == "L":
 else:
     print("Enter either K or L")
 
-
-import sys
 
 while True:
     print('Who are you?\n')
@@ -885,7 +884,6 @@ else:
     print(0)
 
 # Guessing Gae
-import random
 secretnumber = random.randint(1, 20)
 
 print('I a thinking of a number between 1 and 20')
@@ -1757,6 +1755,8 @@ while True:
     print(location)
 
 # OOP
+
+
 class PartyAnimal:
     x = 0
 
@@ -1778,6 +1778,7 @@ print(type(an))
 an = 5
 print('an contains', an)
 print(type(an))
+
 
 class PartyAnimal:
     x = 0
@@ -1808,6 +1809,7 @@ s.party()
 j = FootballFan("jim")
 j.party()
 j.touchdown()
+
 
 class Human:
 
@@ -1867,6 +1869,57 @@ me = Human("Jamal", 23, "Programmer", 180, 65, 'dark')
 me.likes()
 me.loves()
 me.speaks()
+
+
+import sys
+import random
+PasswordFile = open('SecretPassword.txt')
+SecretPassword = PasswordFile.read()
+print('Enter Password')
+TypedPassword = ()
+if TypedPassword == SecretPassword:
+    print('Access Granted')
+    if TypedPassword == '12345':
+        print('That Password is one that an idiot puts on their luggage.')
+else:
+    print('Access Denied')
+
+
+import random
+
+
+def getAnswer(answerNumber):
+    if answerNumber == 1:
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so'
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+        return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+
+r = random.randint(1, 9)
+fortune = getAnswer(r)
+print(fortune)
+
+print(getAnswer(random.randint(1, 9)))
+
+print('Hello', end='')
+print('World')
+
+print('cats', 'dogs', 'mice', sep=',')
+
 # Get customers name
 # Get order Date
 # Get delivery date
