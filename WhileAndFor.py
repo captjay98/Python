@@ -525,7 +525,59 @@ kal = 'golon, yaro.'
 print_twice(kal)
 
 
-# print_twice() #Void Function
+# Function call tree
+
+def a():
+    print('a() starts')
+    b()
+    d()
+    print('a() returns')
+
+
+def b():
+    print('b() starts')
+    c()
+    print('b() returns')
+
+
+def c():
+    print('c() starts')
+    print('c() returns')
+
+
+def d():
+    print('d() starts')
+    print('d() returns')
+
+
+a()
+
+def spam():
+    eggs = 'spam local'
+    print(eggs)
+
+
+def bacon():
+    eggs = 'bacon local'
+    spam()
+    print(eggs)
+
+
+eggs = "global"
+bacon()
+print(eggs)
+
+def spam(divideBy):
+ try:
+     return 42 / divideBy
+ except ZeroDivisionError:
+     print('Error: Invalid argument.')
+
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
 
 # Value None is not the same as string None
 
@@ -1336,6 +1388,124 @@ for line in file:
         continue
     print(wds[2])
 
+granKids = []
+
+while True:
+    print('Enter the Name of the Grand Kids', str(
+        len(granKids) + 1), '(Enter Done to stop):')
+
+    name = input()
+    if name == 'Done':
+        break
+    granKids = granKids + [name]
+
+print('The GrandKIds are:')
+for name in granKids:
+    print("", name)
+
+supplies = ['pens', 'staplers', 'flamethrowers', 'binders']
+
+for i in range(len(supplies)):
+    print('Index ', str(i), ' in supplies is: ', supplies[i])
+
+for index, item in enumerate(supplies):
+    print('Index ', str(index), ' in supplies is: ', item)
+
+myPets = ['Zophie', 'Pooka', 'Fat-tail']
+print('Enter a pet name:')
+name = input()
+if name not in myPets:
+    print('I do not have a pet named ' + name)
+else:
+    print(name + ' is my pet.')
+
+cat = ['fat', 'gray', 'loud']
+size, color, disposition = cat
+
+print(size)
+
+import random
+
+pets = ['Dog', 'Cat', 'moose']
+
+print(random.choice(pets))
+
+random.shuffle(pets)
+
+print(pets)
+
+spam = 42
+spam += 1
+
+
+spam.index
+
+spam.append
+
+spam.insert
+
+spam.remove
+
+spam.sort
+
+spam.sort(reverse=True)
+
+spam.sort(key=str.lower)
+
+spam.reverse()
+
+import random
+messages = ['Is is certain',
+            'It is Definitely so',
+            'Yes Definitely',
+            'Reply hazy try again',
+            'Ask again later',
+            'Concentrate and ask again',
+            'My reply is no',
+            'Outlook not so good',
+            'Very doubtful']
+
+print(messages[random.randint(0, len(messages) - 1)])
+
+
+def getAnswer(answerNumber):
+    if answerNumber == 1:
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so'
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+       return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+
+r = random.randint(1, 9)
+fortune = getAnswer(r)
+print(fortune)
+
+import copy
+copy.copy
+deepcopy()
+
+def eggs(someParameter):
+    someParameter.append(input())
+
+
+spam = [1, 2, 3]
+eggs(spam)
+
+print(spam)
+
 
 # DICTIONARIES
 store = {}
@@ -1871,8 +2041,6 @@ me.loves()
 me.speaks()
 
 
-import sys
-import random
 PasswordFile = open('SecretPassword.txt')
 SecretPassword = PasswordFile.read()
 print('Enter Password')
@@ -1883,9 +2051,6 @@ if TypedPassword == SecretPassword:
         print('That Password is one that an idiot puts on their luggage.')
 else:
     print('Access Denied')
-
-
-import random
 
 
 def getAnswer(answerNumber):
