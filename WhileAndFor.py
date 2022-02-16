@@ -1506,6 +1506,40 @@ eggs(spam)
 
 print(spam)
 
+spa = ['apples', 'bananas', 'tofu', 'cats']
+
+# Exercise
+def pract(p):
+
+    for thing in p:
+        x = tuple(p)
+
+        for thing in x:
+            y = str(x)
+        return y
+
+
+z = pract(spa)
+print(z)
+
+print(type(z))
+
+import random
+
+streaks = 0
+outcome = []
+for expeNun in range(10000):
+    if random.randint(0, 1) == 0:
+        outcome.append('H')
+    else:
+        outcome.append('T')
+
+    if 'H' * 6 in outcome:
+        print('6 Heads have occured')
+    elif 'T' * 6 in outcome:
+        print('6 tails have occured')
+print(outcome)
+
 
 # DICTIONARIES
 store = {}
@@ -1995,6 +2029,9 @@ class Human:
 
     def speaks(self):
         print(self.name, "Speaks English")
+
+    def others():
+        print("He's fihting his deons")
 
 
 tom = Human("Tom Cruise", "Actor")
