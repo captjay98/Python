@@ -10,7 +10,7 @@ while True:
             global score
             return score
 
-        score = float(input("Enter Score"))
+        score = float(input("Enter Score = "))
 
         # The scores and grading
         if computegrade(score) > 100 or computegrade(score) < 0:

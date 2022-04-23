@@ -16,7 +16,7 @@ while True:
         rate = float(rate)
 
         pay = computepay(hours, rate)
-        print("Pay", pay)
+        print("Pay = ", pay)
 
     except ValueError:
         print('Enter Digits Please')
