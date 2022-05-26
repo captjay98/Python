@@ -4,5 +4,5 @@ words = words.split(" ")
 
 count = 0
 for word in words:
-    count = count + 1
+    count += 1
     print(word, count)
