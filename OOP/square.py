@@ -38,7 +38,7 @@ class Shapes:
         self.__width = value
 
     def draw(self):
-        """Function That drawa a shape using turtle"""
+        """Function That draws a shape using turtle"""
         for i in range(self.sides):
             turtle.color(self.color)
             turtle.pensize(self.line)
