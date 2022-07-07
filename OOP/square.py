@@ -39,14 +39,15 @@ class Shapes:
         return int(self.__width) * int(self.__height)
 
     def __str__(self):
-        return ("Height of {} = {}, Width = {} and sides = "
-                .format(self.name, self.__height, self.__width))
+        return "Height of {} = {}, Width = {} and sides = ".format(self.name, self.__height, self.__width)
 
+class Square(Shapes):
     def __init__(self, height=0, width=0):
         super().__init__(height, width)
         self.__height = height
         self.__width = width
         self.name = "Square"
+
 
     def draw(self):
         """Function That drawa a shape using turtle"""
@@ -62,6 +63,7 @@ class Rectangle(Shapes):
         self.__height = height
         self.__width = width
         self.name = "Reactangle"
+
 
     def draw(self):
         """Function That drawa a shape using turtle"""
