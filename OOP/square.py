@@ -3,6 +3,7 @@
 """Define a Shape."""
 
 
+from curses.textpad import rectangle
 import turtle
 
 
@@ -15,6 +16,8 @@ class Shapes:
         self.__width = width
         self.interior = (self.sides - 2) * 180
         self.angle = self.interior/self.sides
+        self.line = 5
+        self.color = "blue"
 
     @property
     def height(self):
@@ -37,37 +40,47 @@ class Shapes:
     def draw(self):
         """Function That drawa a shape using turtle"""
         for i in range(self.sides):
-            turtle.forward(self.__width)
+            turtle.color(self.color)
+            turtle.pensize(self.line)
+            turtle.color()
+            turtle.forward(self.__height)
             turtle.right(180-self.angle)
-        turtle.done()
 
     def getArea(self):
         return int(self.__width) * int(self.__height)
 
     def __str__(self):
-        return ("Height of {} = {}, Width = {} and sides = {}"
-                .format(self.name, self.__height, self.__width, self.sides))
+        if self.name == "Reactangle":
+            return ("Height of {} = {}, Width = {} and sides = {}"
+                    .format(self.name, self.__height,
+                            self.__width, self.sides))
+        else:
+            return ("Size of {} = {} and sides = {}"
+                    .format(self.name, self.__height, self.sides))
 
 
 class Square(Shapes):
-    def __init__(self, sides=4, height=0, width=0):
-        super().__init__(sides, height, width)
+    def __init__(self, sides=4, height=0):
+        super().__init__(sides, height)
         self.sides = sides
-        self.__height = height
-        self.__width = width
         self.name = "Square"
 
 
 class Rectangle(Shapes):
     def __init__(self, sides=4, height=0, width=0):
         super().__init__(sides, height, width)
-        self.sides = sides
         self.__height = height
         self.__width = width
+        self.sides = sides
         self.name = "Reactangle"
+        self.line = 8
+        self.color = "pink"
 
     def draw(self):
-        """Function That drawa a shape using turtle"""
+        """Function That draws a shape using turtle"""
+        turtle.begin_fill()
+        turtle.pensize(self.line)
+        turtle.color(self.color)
         turtle.forward(self.__width)
         turtle.right(90)
         turtle.forward(self.__height)
@@ -76,20 +89,26 @@ class Rectangle(Shapes):
         turtle.right(90)
         turtle.forward(self.__height)
         turtle.right(90)
-        turtle.done()
+        turtle.end_fill()
 
 
 class Polygon(Shapes):
-    def __init__(self, sides=5, height=0, width=0):
-        super().__init__(sides, height, width)
+    def __init__(self, sides=5, height=0):
+        super().__init__(sides, height)
         self.sides = sides
-        self.__height = height
-        self.__width = width
         self.name = "Polygon"
 
+    def draw(self):
+        turtle.begin_fill()
+        super().draw()
+        turtle.end_fill()
 
-aSquare = Square(4, 300, 300)
+
+aSquare = Square(4, 300)
 print("\n")
 aRect = Rectangle(4, 200, 400)
 print("\n")
-poly = Polygon(5, 200, 200)
+poly = Polygon(5, 200)
+
+poly.draw()
+turtle.done()
