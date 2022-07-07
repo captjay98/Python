@@ -2,20 +2,17 @@
 
 """Define a Shape."""
 
-
 from re import A
-from reprlib import aRepr
 import turtle
-from webbrowser import get
-
-
 class Shapes:
     """Represent a Square."""
 
-    def __init__(self, height=0, width=0):
-        self.height = height
-        self.width = width
-        self.sides = 4
+    def __init__(self,sides=4, height=0, width=0):
+        self.sides = sides
+        self.__height = height
+        self.__width = width
+        self.interior = (self.sides -2) * 180
+        self.angle = self.interior/self.sides
 
     @property
     def height(self):
@@ -35,31 +32,33 @@ class Shapes:
     def width(self, value):
         self.__width = value
 
+    def draw(self):
+        """Function That drawa a shape using turtle"""
+        for i in range(4):
+            turtle.forward(self.__width)
+            turtle.right(180-self.angle)
+        turtle.done()
+    
+        
+
     def getArea(self):
         return int(self.__width) * int(self.__height)
 
     def __str__(self):
-        return "Height of {} = {}, Width = {} and sides = ".format(self.name, self.__height, self.__width)
+        return "Height of {} = {}, Width = {} and sides = {}".format(self.name, self.__height, self.__width, self.sides)
 
 class Square(Shapes):
-    def __init__(self, height=0, width=0):
-        super().__init__(height, width)
+    def __init__(self,sides=4, height=0, width=0):
+        super().__init__(sides, height, width)
+        self.sides = sides
         self.__height = height
         self.__width = width
         self.name = "Square"
 
-
-    def draw(self):
-        """Function That drawa a shape using turtle"""
-        for i in range(self.sides):
-            turtle.forward(self.__width)
-            turtle.right(self.__height)
-        turtle.done()
-
-
 class Rectangle(Shapes):
-    def __init__(self, height=0, width=0):
-        super().__init__(height, width)
+    def __init__(self,sides=4, height=50, width=0):
+        super().__init__(sides, height, width)
+        self.sides = sides
         self.__height = height
         self.__width = width
         self.name = "Reactangle"
@@ -78,14 +77,15 @@ class Rectangle(Shapes):
         turtle.done()
 
 
-aSquare = Square()
-heightofSq = int(input("Enter lenght of square :-"))
-aSquare.height = heightofSq
-aSquare.width = aSquare.height
+aSquare = Square(4, 300, 300)
 print(aSquare)
 
 print("\n")
 
-aRect = Rectangle(80, 180)
+aRect = Rectangle(4, 200, 400)
+
 print(aRect)
-aRect.draw()
+
+
+
+
