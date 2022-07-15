@@ -5,15 +5,25 @@ from tracemalloc import start
 from unicodedata import name
 
 
-class Anime():
+class Ninja():
 
-    alias = "Number One Crackhead Ninja"
+    _alias = "Belong to Formidabble Hidden Villages"
     num = 5
+    __members = 0
 
     def __init__(self, name="", rank="", powerLevel=0):
         self.name = name
         self.rank = rank
         self.__powerLevel = powerLevel
+        
+        Ninja.__members += 1
+
+    @staticmethod
+    def participants():
+        return Ninja.__members
+
+    def about(cls):
+        print(f"They all {cls._alias}")
 
     def knownFor(self):
         if self.name == "Naruto":
@@ -32,9 +42,6 @@ class Anime():
     @powerLevel.setter
     def powerLevel(self, value):
         self.__powerLevel = value
-
-
-
 
     def strength(self, speciality):
         if self.name == "Naruto":
@@ -71,7 +78,7 @@ class Anime():
             return ("You're INN")
 
 
-class LeafVillage(Anime):
+class LeafVillage(Ninja):
     
     def __init__(self, name, rank, powerLevel, upperhand):
         super().__init__(name, rank, powerLevel)
@@ -88,7 +95,7 @@ class LeafVillage(Anime):
         return x"""
 
 
-class SandVillage(Anime):
+class SandVillage(Ninja):
     
     def __init__(self, name, rank, powerLevel, upperhand):
         super().__init__(name, rank, powerLevel)
@@ -104,17 +111,15 @@ class SandVillage(Anime):
         return x"""
 
 
-
-
-
 naruto = LeafVillage("Naruto", "Hokage", 500, "Nine Tails")
 narut = SandVillage("Naruto", "Hokage", 50, "Jinchuriki")
-lee = Anime("Rock Lee", "Chunin", 350)
-kiba = Anime("Kiba", "Chunin", 250) 
+lee = Ninja("Rock Lee", "Chunin", 350)
+kiba = Ninja("Kiba", "Chunin", 250) 
 
 gaara = SandVillage("Gaara", "Hokage", 500, "Sand Beast")
 
-print(naruto)
+print(Ninja.about())
+"""
 #print(narut)
 print(naruto.inLeaf())
 #print(naruto.allies())
@@ -124,7 +129,7 @@ print(gaara.inSand())
 
 #(kiba.start_powwer(300))
 #(naruto.start_powwer(500))
-#(Anime.start_powwer(600))
+#(Ninja.start_powwer(600))
 
 #naruto.knownFor()
 
@@ -146,7 +151,7 @@ print(gaara)
 
 #  print(naruto == narut)
 
-
+"""
 
 
 
