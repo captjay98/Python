@@ -80,7 +80,10 @@ class Ninja():
 
     def __repr__(self):
         return 'Ninja("{}", "{}", {})'.format(self.name, self.rank, self.__powerLevel)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9d83665a05d8345bfb0b5b88d8c72946c0ec8e80
     def __str__(self):
         detail = ("His name is {} He is a {} and has a power level of {}"
                 .format(self.name, self.rank, self.__powerLevel))
@@ -96,7 +99,13 @@ class Ninja():
         else:
             return ("You're INN")
 
+<<<<<<< HEAD
 
 x = Ninja("Naruto", "Hokage", 999)
 
 print(x)
+=======
+x = Ninja("Naruto", "Hokage", 9999)
+
+print(repr(x))
+>>>>>>> 9d83665a05d8345bfb0b5b88d8c72946c0ec8e80
