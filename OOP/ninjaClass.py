@@ -78,6 +78,9 @@ class Ninja():
         else:
             print(f"{self.name} is known for what they're known for")
 
+    def __repr__(self):
+        return 'Ninja("{}", "{}", {})'.format(self.name, self.rank, self.__powerLevel)
+
     def __str__(self):
         detail = ("His name is {} He is a {} and has a power level of {}"
                 .format(self.name, self.rank, self.__powerLevel))
@@ -92,3 +95,8 @@ class Ninja():
             return "You,re Out"
         else:
             return ("You're INN")
+
+
+x = Ninja("Naruto", "Hokage", 999)
+
+print(x)
