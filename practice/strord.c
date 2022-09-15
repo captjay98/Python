@@ -17,3 +17,7 @@ for c in range(0, len(sec) -1, 2):
     code = sec[c] + sec[c + 1]
     norm += chr(int(code) + 23)
 print("Original Message = ", norm)
+
+
+
+
