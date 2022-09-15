@@ -19,7 +19,7 @@ class Robot:
             print(f"Initializing {self.name}")
             
         self.__buildYear = buildYear
-        self.__rating = rating
+        self.rating = rating
 
         #When Robot is created, robot adds to the __population
         Robot.__population+=1
@@ -89,9 +89,9 @@ class Robot:
                 .format(self.name, self.__buildYear))
 
     @classmethod
-    def how_many(self):
+    def how_many(cls):
         """Prints current __population"""
-        print(f"we have {self.__population} robot(s)")
+        print(f"we have {cls.__population} robot(s)")
 
 
 droid1 = Robot("Sesame", 2002, 90)
@@ -113,6 +113,7 @@ print()
 
 droid0 = Robot("Kal")
 droid0.buildYear(2005)
+droid0.rating = 50
 print(droid0)
 droid0.sayhi()
 Robot.how_many()

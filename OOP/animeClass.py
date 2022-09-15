@@ -18,12 +18,7 @@ class LeafVillage(Ninja):
     def inLeaf(self):
         return(f"{self.name} is known for causing trouble.")
 
-    def allies(self):
-        if self.name == "Naruto":
-            self.team = ["Sasuke", "Sakura", "Sai"]
-        x = ("{}'s teammates include {}, {} and {}"
-            .format(self.name, self.team[0], self.team[1], self.team[2]))
-        return x
+
 
 
 class SandVillage(Ninja):
@@ -37,12 +32,12 @@ class SandVillage(Ninja):
     def inSand(self):
         return (f"{self.name} was a calm and collected Person.")
 
-    """def allies(self):
-        if self.name == "Naruto":
-            allie = ["Temari", "Kakunro"]
-        x = (f"{self.name}'s allies include {allie[0]} and {allie[1]}")
-        return x"""
-
+    def allies(self):
+        if self.name == "gaara":
+            self.team = ["Temari", "Kakuro"]
+        x = ("{}'s teammates include {} and {}"
+            .format(self.name, self.team[0], self.team[1]))
+        return x
 
 naruto = LeafVillage("Naruto", "Hokage", 500, "Nine Tails")
 narut = SandVillage("Naruto", "Hokage", 50, "Jinchuriki")
@@ -57,12 +52,7 @@ print(Ninja.battles)
 
 print(Ninja.participants())
 
-naruto.die()
-temari.die()
-lee.die()
-kiba.die()
-gaara.die()
-
+print(gaara.allies())
 """
 #print(narut)
 print(naruto.inLeaf())

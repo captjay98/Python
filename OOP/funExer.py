@@ -7,9 +7,9 @@ from unicodedata import name
 
 class Ninja():
 
-    _alias = "Belong to Formidabble Hidden Villages"
-    num = 5
+    _alias = "They are all Formidable Hidden Villages"
     __members = 0
+    battles = 0
 
     def __init__(self, name="", rank="", powerLevel=0):
         self.name = name
@@ -22,8 +22,13 @@ class Ninja():
     def participants():
         return Ninja.__members
 
+    @classmethod
     def about(cls):
-        print(f"They all {cls._alias}")
+        return(f"{cls._alias}")
+
+    @classmethod
+    def numofBattles(cls, val):
+        cls.battles = val
 
     def knownFor(self):
         if self.name == "Naruto":
@@ -79,7 +84,9 @@ class Ninja():
 
 
 class LeafVillage(Ninja):
-    
+
+    _alias = "LeafVillage are the Strongest Hidden Village"
+
     def __init__(self, name, rank, powerLevel, upperhand):
         super().__init__(name, rank, powerLevel)
         self.upperhand = upperhand
@@ -87,16 +94,18 @@ class LeafVillage(Ninja):
     def inLeaf(self):
         return(f"{self.name} is known for causing trouble.")
 
-    """ def allies(self):
+    def allies(self):
         if self.name == "Naruto":
-            team = ["Sasuke", "Sakura", "Sai"]
-        x = (f"{self.name}'s teammates include "
-            "{allies[0]},{allies[1]} and {allies[2]}")
-        return x"""
+            self.team = ["Sasuke", "Sakura", "Sai"]
+        x = ("{}'s teammates include {}, {} and {}"
+            .format(self.name, self.team[0], self.team[1], self.team[2]))
+        return x
 
 
 class SandVillage(Ninja):
-    
+
+    _alias = "SandVillage are also a Strong Hidden Village"
+
     def __init__(self, name, rank, powerLevel, upperhand):
         super().__init__(name, rank, powerLevel)
         self.upperhand = upperhand
@@ -117,8 +126,11 @@ lee = Ninja("Rock Lee", "Chunin", 350)
 kiba = Ninja("Kiba", "Chunin", 250) 
 
 gaara = SandVillage("Gaara", "Hokage", 500, "Sand Beast")
+temari = SandVillage("Temari", "Chunin", 500, "Wind Style")
 
-print(Ninja.about())
+Ninja.numofBattles(50)
+print(Ninja.battles)
+
 """
 #print(narut)
 print(naruto.inLeaf())
@@ -150,6 +162,9 @@ gaara.powerLevel = 800
 print(gaara)
 
 #  print(naruto == narut)
+
+print(LeafVillage.about())
+print(SandVillage.about())
 
 """
 

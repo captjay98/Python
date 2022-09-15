@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
 
-class Car:
+class BMW:
      
-    def __init__(self="", name="", brand="", model="", year=0, appeal=""):
+    def __init__(self="", name="", model="", year=0, appeal=""):
         self.name = name
-        self.brand = brand
         self.model = model
         self.year = year
         self.appeal = appeal
@@ -26,19 +25,11 @@ class Car:
         print("One reason You should get this car is because {}".format(self.appeal))
         
         
-        
-
+e39 = BMW("5 Series", "e39",  1998, "Timeless Design")
     
-koja = Car("Koja", "BMW", "e46", 2006, "The Subline Inline 6")
+e46 = BMW("3 Series", "e46", 2006, "The Subline Inline 6")
     
-Anaconda = Car("Anaconda", "Honda", "cp1", 2007, "VTEC, need to say more??")
-    
-e9x = Car("E9x", "BMW', 'E90, E92", 2007, "The Fantastic N53")
-
-koja.run()
-koja.prestige()
-koja.value()
-koja.age()
+e9x = BMW("3 Series", "E90, E92, E93", 2007, "The Fantastic N53")
 
     
     

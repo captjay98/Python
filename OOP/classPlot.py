@@ -21,3 +21,4 @@ b = Point(2, 2)
 c = a + b
 
 print(c.x, c.y)
+a.plot()
