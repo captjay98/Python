@@ -3,9 +3,63 @@
 from sqlite3 import connect
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData, insert, select,  Table, ForeignKey, CheckConstraint, Numeric
-from sqlalchemy import Integer, asc, desc,  String, Column, Text, DateTime, Boolean, DateTime
+from sqlalchemy import Integer, asc, desc,  String, Column, SmallInteger, Text, DateTime, Boolean, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from datetime import datetime
 
+
+engine = create_engine("mysql://captjay98:81651515@localhost/market")
+
+
+Base = declarative_base()
+
+class Customer(Base):
+    __tablename__ = 'customers'
+    id = Column(Integer(), primary_key=True)
+    first_name = Column(String(100), nullable=False)
+    last_name = Column(String(100), nullable=False)
+    username = Column(String(50), nullable=False)
+    email = Column(String(200), nullable=False)
+    created_on = Column(DateTime(), default=datetime.now)
+    updated_on = Column(DateTime(), default=datetime.now, onupdate=datetime.now)
+    orders = relationship("Order", backref='customer')
+
+
+class Item(Base):
+    __tablename__ = 'items'
+    id = Column(Integer(), primary_key=True)
+    name = Column(String(200), nullable=False)
+    cost_price =  Column(Numeric(10, 2), nullable=False)
+    selling_price = Column(Numeric(10, 2),  nullable=False)
+#     orders = relationship("Order", backref='customer')
+    
+
+class Order(Base):
+    __tablename__ = 'orders'
+    id = Column(Integer(), primary_key=True)
+    customer_id = Column(Integer(), ForeignKey('customers.id'))
+    date_placed = Column(DateTime(), default=datetime.now)
+    line_items = relationship("OrderLine", secondary="order_lines", backref='order')
+    
+
+class OrderLine(Base):
+    __tablename__ = 'order_lines'
+    id =  Column(Integer(), primary_key=True)
+    order_id = Column(Integer(), ForeignKey('orders.id'))
+    item_id = Column(Integer(), ForeignKey('items.id'))
+    quantity = Column(SmallInteger())
+    item = relationship("Item")
+
+
+Base.metadata.create_all(engine)
+
+
+
+
+
+
+"""
 engine = create_engine("mysql://captjay98:81651515@localhost/market")
 engine.connect()
 
@@ -51,8 +105,17 @@ order_lines = Table('order_lines', metadata,
                     )
 
 metadata.create_all(engine)
+
 connection = engine.connect()
 
+
+selection =  customers.select()
+exec = connection.execute(selection)
+
+print(selection)
+
+for item in exec.fetchall():
+    print(item)
 '''
 ins = customers.insert().values(
     first_name='Jamal',
@@ -356,7 +419,7 @@ s = select([
 print(s)
 rs = connection.execute(s)
 rs.keys()
-print(rs.fetchall())'''
+print(rs.fetchall())
 from sqlalchemy import update
 
 selection = update(customers).where(
@@ -373,3 +436,126 @@ selection = select(customers)
 print(selection)
 exec = connection.execute(selection)
 print(exec.fetchall())
+from sqlalchemy import delete
+
+selection = delete(customers).where(
+    customers.c.id == 2
+)
+
+s = select([customers.c.town]).where(customers.c.id  < 10).distinct()
+print(s)
+
+s = select([        
+    func.count(distinct(customers.c.town)),
+    func.count(customers.c.town)
+])
+
+from sqlalchemy import cast, Date
+
+s = select([
+    cast(func.pi(), Integer),
+    cast(func.pi(), Numeric(10,2)),
+    cast("2010-12-01", DateTime),
+    cast("2010-12-01", Date),
+])
+
+u = union(
+    select([items.c.id, items.c.name]).where(items.c.name.like("Wa%")),
+    select([items.c.id, items.c.name]).where(items.c.name.like("%e%")),
+).order_by(desc("id"))
+
+from sqlalchemy import union_all
+
+s = union_all(
+    select([items.c.id, items.c.name]).where(items.c.name.like("Wa%")),
+    select([items.c.id, items.c.name]).where(items.c.name.like("%e%")),
+).order_by(desc("id"))
+
+s = select([items.c.id, items.c.name]).where(
+    items.c.id.in_( 
+        select([order_lines.c.item_id]).select_from(customers.join(orders).join(order_lines)).where(    
+                and_(
+                    customers.c.first_name == 'John',
+                    customers.c.last_name == 'Green',
+                    orders.c.id == 1
+                )    
+        )
+    )
+)
+
+rom sqlalchemy.sql import text
+
+s = text(
+
+SELECT
+    orders.id as "Order ID", orders.date_placed, items.id, items.name
+FROM
+    customers
+INNER JOIN orders ON customers.id = orders.customer_id
+INNER JOIN order_lines ON order_lines.order_id = orders.id
+INNER JOIN items ON items.id= order_lines.item_id
+where customers.first_name = :first_name and customers.last_name = :last_name
+
+)
+print(s)
+rs = conn.execute(s, first_name="John", last_name='Green')
+rs.fetchall()
+
+s = select([items]).where(
+    text("items.name like 'Wa%'")
+).order_by(text("items.id desc"))
+
+print(s)
+rs = conn.execute(s)
+rs.fetchall()
+
+from sqlalchemy.exc import IntegrityError
+
+'''A transaction is a way to execute a set of SQL statements such that either all of the statements are executed successfully or nothing at all. If any of the statement involved in the transaction fails then the database is returned to the state it was in before the transaction was initiated.
+
+We currently have two orders in the database. To fulfill an order we need to perform following two actions:
+
+Subtract the quantity of ordered items from the items table
+Update the date_shipped column to contain the datetime value.
+Both of these action must be performed as a unit to ensure that the data in the tables are correct.
+
+The Connection object provides a begin() method, which starts the transaction and returns an object of type Transaction. The Transaction object in turn provides rollback() and commit() method, to rollback and commit the transaction, respectively.
+
+In the following listing we define dispatch_order() method which accepts order_id as argument, and performs the above mentioned actions using transaction.'''
+def dispatch_order(order_id):
+
+    # check whether order_id is valid or not
+    r = conn.execute(select([func.count("*")]).where(orders.c.id == order_id))
+    if not r.scalar():
+        raise ValueError("Invalid order id: {}".format(order_id))
+
+    # fetch items in the order
+    s = select([order_lines.c.item_id, order_lines.c.quantity]).where(
+        order_lines.c.order_id == order_id
+    )
+
+    rs = conn.execute(s)
+    ordered_items_list = rs.fetchall()
+
+    # start transaction
+    t = conn.begin()
+
+    try:
+        for i in ordered_items_list:
+            u = update(items).where(
+                items.c.id == i.item_id
+            ).values(quantity = items.c.quantity - i.quantity)
+
+            rs = conn.execute(u)
+
+        u = update(orders).where(orders.c.id == order_id).values(date_shipped=datetime.now())
+        rs = conn.execute(u)
+        t.commit()
+        print("Transaction completed.")
+
+    except IntegrityError as e:
+        print(e)
+        t.rollback()
+        print("Transaction failed.")
+        '''
+"""

@@ -15,7 +15,10 @@ for item in data:
 print(session.query(Song).count())
 session.query(Album).first()
 session.query(Song).get(9)
-'''
 
 print(session.query(Song).filter(Song.name =='Too Sad to Cry').all())
 print(session.query(Song).filter(Song.name == 'Too Sad to Cry'))
+'''
+data = session.query(Artist.stage_name).join(Song.name).all()
+for item in data:
+    print(Artist.stage_name, Album.name)
