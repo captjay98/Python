@@ -49,4 +49,19 @@ while True:
             print('Enter C or F')
 
     except ValueError:
-        print("Enter Digits Please")
+
+        if (tempCF >= 88)
+		{
+			printf("It is %d in Farenheit\n", tempCF);
+		    printf("It's a Hot Day, Stay Hydrated");
+		}
+		else if (tempCF >= 69)
+		{
+		    printf("It is %d in Farenheit\n", tempCF);
+			printf("It's a Nice Day, Enjoy!");
+		}
+		else if (tempCF < 69)
+		{
+		    printf("It is %d in Farenheit\n", tempCF);
+			printf("It is chilly Today, Stay Warm!");
+		}        print("Enter Digits Please")
