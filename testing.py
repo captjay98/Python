@@ -36,9 +36,9 @@ print(x)
 '{:=5d}'.format((- 23))
 
 '{:=+5d}'.format(23)
-
+'''
 '{first} {last}'.format(**data)
-
+'''
 '{first} {last}'.format(first='Hodor', last='Hodor!')
 #!/usr/bin/python3
 
